@@ -260,8 +260,12 @@ static void subghz_setting_load_default_region(
 
     subghz_setting_load_default_preset(
         instance, "AM270", subghz_device_cc1101_preset_ook_270khz_async_regs);
+	subghz_setting_load_default_preset(
+        instance, "AM_Q", subghz_device_cc1101_preset_ook_650khz_async_regs_better_q);
     subghz_setting_load_default_preset(
         instance, "AM650", subghz_device_cc1101_preset_ook_650khz_async_regs);
+	subghz_setting_load_default_preset(
+        instance, "TPMS", subghz_device_cc1101_preset_TPMS);
     subghz_setting_load_default_preset(
         instance, "FM238", subghz_device_cc1101_preset_2fsk_dev2_38khz_async_regs);
     subghz_setting_load_default_preset(
@@ -408,6 +412,16 @@ void subghz_setting_load(SubGhzSetting* instance, const char* file_path) {
     }
 }
 
+void subghz_setting_set_default_frequency(SubGhzSetting* instance, uint32_t frequency_to_setup) {
+    for
+        M_EACH(frequency, instance->frequencies, FrequencyList_t) {
+            *frequency &= FREQUENCY_MASK;
+            if(*frequency == frequency_to_setup) {
+                *frequency |= FREQUENCY_FLAG_DEFAULT;
+            }
+        }
+}
+
 size_t subghz_setting_get_frequency_count(SubGhzSetting* instance) {
     furi_assert(instance);
     return FrequencyList_size(instance->frequencies);
@@ -425,6 +439,9 @@ size_t subghz_setting_get_preset_count(SubGhzSetting* instance) {
 
 const char* subghz_setting_get_preset_name(SubGhzSetting* instance, size_t idx) {
     furi_assert(instance);
+    if(idx >= SubGhzSettingCustomPresetItemArray_size(instance->preset->data)) {
+        idx = 0;
+    }
     SubGhzSettingCustomPresetItem* item =
         SubGhzSettingCustomPresetItemArray_get(instance->preset->data, idx);
     return furi_string_get_cstr(item->custom_preset_name);
@@ -549,4 +566,36 @@ uint32_t subghz_setting_get_default_frequency(SubGhzSetting* instance) {
     furi_assert(instance);
     return subghz_setting_get_frequency(
         instance, subghz_setting_get_frequency_default_index(instance));
+}
+
+uint8_t subghz_setting_customs_presets_to_log(SubGhzSetting* instance) {
+    furi_assert(instance);
+#ifndef FURI_DEBUG
+    FURI_LOG_I(TAG, "Logging loaded presets allow only Debug build");
+#else
+    uint8_t count = 0;
+    FuriString* temp = furi_string_alloc();
+
+    FURI_LOG_I(TAG, "Loaded presets");
+    for
+        M_EACH(item, instance->preset->data, SubGhzSettingCustomPresetItemArray_t) {
+            furi_string_reset(temp);
+
+            for(uint8_t i = 0; i < item->custom_preset_data_size; i++) {
+                furi_string_cat_printf(temp, "%02u ", item->custom_preset_data[i]);
+            }
+
+            FURI_LOG_I(
+                TAG, "%u  -  %s", count + 1, furi_string_get_cstr(item->custom_preset_name));
+            FURI_LOG_I(TAG, "  Size: %u", item->custom_preset_data_size);
+            FURI_LOG_I(TAG, "  Data: %s", furi_string_get_cstr(temp));
+
+            count++;
+        }
+
+    furi_string_free(temp);
+
+    return count;
+#endif
+    return 0;
 }

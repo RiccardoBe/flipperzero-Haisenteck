@@ -30,7 +30,13 @@ bool subghz_devices_begin(const SubGhzDevice* device) {
     bool ret = false;
     furi_assert(device);
     if(device->interconnect->begin) {
-        ret = device->interconnect->begin();
+        SubGhzDeviceConf conf = {
+            .ver = 1,
+            .extended_range = false, // TODO
+            .power_amp = furi_hal_subghz_get_ext_power_amp(),
+        };
+
+        ret = device->interconnect->begin(&conf);
     }
     return ret;
 }
@@ -222,6 +228,7 @@ bool subghz_devices_is_rx_data_crc_valid(const SubGhzDevice* device) {
 }
 
 void subghz_devices_read_packet(const SubGhzDevice* device, uint8_t* data, uint8_t* size) {
+    furi_assert(device);
     furi_assert(device);
     if(device->interconnect->read_packet) {
         device->interconnect->read_packet(data, size);

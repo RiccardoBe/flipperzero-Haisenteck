@@ -1,6 +1,7 @@
 #include "generic.h"
 #include <lib/toolbox/stream/stream.h>
 #include <lib/flipper_format/flipper_format_i.h>
+#include "../weather_station_types.h"
 
 #define TAG "SubGhzBlockGeneric"
 
@@ -8,8 +9,12 @@ void subghz_block_generic_get_preset_name(const char* preset_name, FuriString* p
     const char* preset_name_temp;
     if(!strcmp(preset_name, "AM270")) {
         preset_name_temp = "FuriHalSubGhzPresetOok270Async";
+    } else if(!strcmp(preset_name, "AM_Q")) {
+        preset_name_temp = "FuriHalSubGhzPresetOok650Async_q";
     } else if(!strcmp(preset_name, "AM650")) {
         preset_name_temp = "FuriHalSubGhzPresetOok650Async";
+    } else if(!strcmp(preset_name, "TPMS")) {
+        preset_name_temp = "FuriHalSubGhzPresetTPMS";
     } else if(!strcmp(preset_name, "FM238")) {
         preset_name_temp = "FuriHalSubGhzPreset2FSKDev238Async";
     } else if(!strcmp(preset_name, "FM476")) {
@@ -86,14 +91,23 @@ SubGhzProtocolStatus subghz_block_generic_serialize(
             res = SubGhzProtocolStatusErrorParserKey;
             break;
         }
+
+        // Nice One - Manual adding support
+        if(instance->data_count_bit == 72 &&
+           (strcmp(instance->protocol_name, "Nice FloR-S") == 0)) {
+            uint32_t temp = (instance->data_2 >> 4) & 0xFFFFF;
+            if(!flipper_format_write_uint32(flipper_format, "Data", &temp, 1)) {
+                FURI_LOG_E(TAG, "Unable to add Data");
+                break;
+            }
+        }
         res = SubGhzProtocolStatusOk;
     } while(false);
     furi_string_free(temp_str);
     return res;
 }
 
-SubGhzProtocolStatus
-    subghz_block_generic_deserialize(SubGhzBlockGeneric* instance, FlipperFormat* flipper_format) {
+SubGhzProtocolStatus subghz_block_generic_deserialize(SubGhzBlockGeneric* instance, FlipperFormat* flipper_format) {
     furi_assert(instance);
     SubGhzProtocolStatus res = SubGhzProtocolStatusError;
     FuriString* temp_str;

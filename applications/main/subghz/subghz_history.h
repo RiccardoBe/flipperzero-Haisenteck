@@ -6,6 +6,7 @@
 #include <furi_hal.h>
 #include <lib/flipper_format/flipper_format.h>
 #include <lib/subghz/types.h>
+#include <lib/subghz/weather_station_types.h>
 
 typedef struct SubGhzHistory SubGhzHistory;
 
@@ -26,6 +27,8 @@ void subghz_history_free(SubGhzHistory* instance);
  * @param instance - SubGhzHistory instance
  */
 void subghz_history_reset(SubGhzHistory* instance);
+
+void subghz_history_delete_item(SubGhzHistory* instance, uint16_t item_id);
 
 /** Get frequency to history[idx]
  * 
@@ -76,13 +79,28 @@ const char* subghz_history_get_protocol_name(SubGhzHistory* instance, uint16_t i
  */
 void subghz_history_get_text_item_menu(SubGhzHistory* instance, FuriString* output, uint16_t idx);
 
+/** Get time item menu to history[idx]
+ * 
+ * @param instance  - SubGhzHistory instance
+ * @param output    - FuriString* output
+ * @param idx       - record index
+ */
+void subghz_history_get_time_item_menu(SubGhzHistory* instance, FuriString* output, uint16_t idx);
+
 /** Get string the remaining number of records to history
  * 
  * @param instance  - SubGhzHistory instance
  * @param output    - FuriString* output
- * @return bool - is FUUL
+ * @return bool - is FULL
  */
 bool subghz_history_get_text_space_left(SubGhzHistory* instance, FuriString* output);
+
+/** Return last index
+ *
+ * @param instance - SubGhzHistory instance
+ * @return
+ */
+uint16_t subghz_history_get_last_index(SubGhzHistory* instance);
 
 /** Add protocol to history
  * 

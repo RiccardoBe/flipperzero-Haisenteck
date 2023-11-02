@@ -4,21 +4,17 @@
 #include <applications/drivers/subghz/cc1101_ext/cc1101_ext_interconnect.h>
 #include <lib/subghz/devices/cc1101_int/cc1101_int_interconnect.h>
 
-#define TAG "SubGhz"
+#include <lib/subghz/blocks/custom_btn.h>
+
+#define TAG "SubGhzTxRx"
 
 static void subghz_txrx_radio_device_power_on(SubGhzTxRx* instance) {
     UNUSED(instance);
-    uint8_t attempts = 5;
-    while(--attempts > 0) {
-        if(furi_hal_power_enable_otg()) break;
-    }
-    if(attempts == 0) {
-        if(furi_hal_power_get_usb_voltage() < 4.5f) {
-            FURI_LOG_E(
-                TAG,
-                "Error power otg enable. BQ2589 check otg fault = %d",
-                furi_hal_power_check_otg_fault() ? 1 : 0);
-        }
+    uint8_t attempts = 0;
+    while(!furi_hal_power_is_otg_enabled() && attempts++ < 5) {
+        furi_hal_power_enable_otg();
+        //CC1101 power-up time
+        furi_delay_ms(10);
     }
 }
 
@@ -34,13 +30,13 @@ SubGhzTxRx* subghz_txrx_alloc() {
 
     instance->preset = malloc(sizeof(SubGhzRadioPreset));
     instance->preset->name = furi_string_alloc();
-    subghz_txrx_set_preset(
-        instance, "AM650", subghz_setting_get_default_frequency(instance->setting), NULL, 0);
+    subghz_txrx_set_default_preset(instance, 0);
 
     instance->txrx_state = SubGhzTxRxStateSleep;
 
     subghz_txrx_hopper_set_state(instance, SubGhzHopperStateOFF);
     subghz_txrx_speaker_set_state(instance, SubGhzSpeakerStateDisable);
+    subghz_txrx_set_debug_pin_state(instance, false);
 
     instance->worker = subghz_worker_alloc();
     instance->fff_data = flipper_format_string_alloc();
@@ -119,6 +115,8 @@ const char* subghz_txrx_get_preset_name(SubGhzTxRx* instance, const char* preset
     const char* preset_name = "";
     if(!strcmp(preset, "FuriHalSubGhzPresetOok270Async")) {
         preset_name = "AM270";
+    } else if(!strcmp(preset, "FuriHalSubGhzPresetOok650Async_q")) {
+        preset_name = "AM_Q";
     } else if(!strcmp(preset, "FuriHalSubGhzPresetOok650Async")) {
         preset_name = "AM650";
     } else if(!strcmp(preset, "FuriHalSubGhzPreset2FSKDev238Async")) {
@@ -141,7 +139,8 @@ SubGhzRadioPreset subghz_txrx_get_preset(SubGhzTxRx* instance) {
 void subghz_txrx_get_frequency_and_modulation(
     SubGhzTxRx* instance,
     FuriString* frequency,
-    FuriString* modulation) {
+    FuriString* modulation,
+    bool long_name) {
     furi_assert(instance);
     SubGhzRadioPreset* preset = instance->preset;
     if(frequency != NULL) {
@@ -152,7 +151,11 @@ void subghz_txrx_get_frequency_and_modulation(
             preset->frequency / 10000 % 100);
     }
     if(modulation != NULL) {
-        furi_string_printf(modulation, "%.2s", furi_string_get_cstr(preset->name));
+        if(long_name) {
+            furi_string_printf(modulation, "%s", furi_string_get_cstr(preset->name));
+        } else {
+            furi_string_printf(modulation, "%.2s", furi_string_get_cstr(preset->name));
+        }
     }
 }
 
@@ -166,9 +169,7 @@ static void subghz_txrx_begin(SubGhzTxRx* instance, uint8_t* preset_data) {
 
 static uint32_t subghz_txrx_rx(SubGhzTxRx* instance, uint32_t frequency) {
     furi_assert(instance);
-
-    furi_assert(
-        instance->txrx_state != SubGhzTxRxStateRx && instance->txrx_state != SubGhzTxRxStateSleep);
+    furi_assert(instance->txrx_state != SubGhzTxRxStateRx && instance->txrx_state != SubGhzTxRxStateSleep);
 
     subghz_devices_idle(instance->radio_device);
 
@@ -185,11 +186,10 @@ static uint32_t subghz_txrx_rx(SubGhzTxRx* instance, uint32_t frequency) {
 
 static void subghz_txrx_idle(SubGhzTxRx* instance) {
     furi_assert(instance);
-    if(instance->txrx_state != SubGhzTxRxStateSleep) {
-        subghz_devices_idle(instance->radio_device);
-        subghz_txrx_speaker_off(instance);
-        instance->txrx_state = SubGhzTxRxStateIDLE;
-    }
+    //furi_assert(instance->txrx_state != SubGhzTxRxStateSleep);
+    subghz_devices_idle(instance->radio_device);
+    subghz_txrx_speaker_off(instance);
+    instance->txrx_state = SubGhzTxRxStateIDLE;
 }
 
 static void subghz_txrx_rx_end(SubGhzTxRx* instance) {
@@ -214,6 +214,7 @@ void subghz_txrx_sleep(SubGhzTxRx* instance) {
 static bool subghz_txrx_tx(SubGhzTxRx* instance, uint32_t frequency) {
     furi_assert(instance);
     furi_assert(instance->txrx_state != SubGhzTxRxStateSleep);
+
     subghz_devices_idle(instance->radio_device);
     subghz_devices_set_frequency(instance->radio_device, frequency);
 
@@ -381,11 +382,11 @@ void subghz_txrx_hopper_update(SubGhzTxRx* instance) {
     default:
         break;
     }
-    float rssi = -127.0f;
+    //float rssi = -127.0f;
     if(instance->hopper_state != SubGhzHopperStateRSSITimeOut) {
         // See RSSI Calculation timings in CC1101 17.3 RSSI
-        rssi = subghz_devices_get_rssi(instance->radio_device);
-
+		float rssi = subghz_devices_get_rssi(instance->radio_device);
+		
         // Stay if RSSI is high enough
         if(rssi > -90.0f) {
             instance->hopper_timeout = 10;
@@ -393,7 +394,7 @@ void subghz_txrx_hopper_update(SubGhzTxRx* instance) {
             return;
         }
     } else {
-        instance->hopper_state = SubGhzHopperStateRunnig;
+        instance->hopper_state = SubGhzHopperStateRunning;
     }
     // Select next frequency
     if(instance->hopper_idx_frequency <
@@ -427,22 +428,28 @@ void subghz_txrx_hopper_set_state(SubGhzTxRx* instance, SubGhzHopperState state)
 void subghz_txrx_hopper_unpause(SubGhzTxRx* instance) {
     furi_assert(instance);
     if(instance->hopper_state == SubGhzHopperStatePause) {
-        instance->hopper_state = SubGhzHopperStateRunnig;
+        instance->hopper_state = SubGhzHopperStateRunning;
     }
 }
 
 void subghz_txrx_hopper_pause(SubGhzTxRx* instance) {
     furi_assert(instance);
-    if(instance->hopper_state == SubGhzHopperStateRunnig) {
+    if(instance->hopper_state == SubGhzHopperStateRunning) {
         instance->hopper_state = SubGhzHopperStatePause;
     }
 }
 
 void subghz_txrx_speaker_on(SubGhzTxRx* instance) {
     furi_assert(instance);
+    if(instance->debug_pin_state) {
+        subghz_devices_set_async_mirror_pin(instance->radio_device, &gpio_ibutton);
+    }
+
     if(instance->speaker_state == SubGhzSpeakerStateEnable) {
         if(furi_hal_speaker_acquire(30)) {
-            subghz_devices_set_async_mirror_pin(instance->radio_device, &gpio_speaker);
+            if(!instance->debug_pin_state) {
+                subghz_devices_set_async_mirror_pin(instance->radio_device, &gpio_speaker);
+            }
         } else {
             instance->speaker_state = SubGhzSpeakerStateDisable;
         }
@@ -451,9 +458,14 @@ void subghz_txrx_speaker_on(SubGhzTxRx* instance) {
 
 void subghz_txrx_speaker_off(SubGhzTxRx* instance) {
     furi_assert(instance);
+    if(instance->debug_pin_state) {
+        subghz_devices_set_async_mirror_pin(instance->radio_device, NULL);
+    }
     if(instance->speaker_state != SubGhzSpeakerStateDisable) {
         if(furi_hal_speaker_is_mine()) {
-            subghz_devices_set_async_mirror_pin(instance->radio_device, NULL);
+            if(!instance->debug_pin_state) {
+                subghz_devices_set_async_mirror_pin(instance->radio_device, NULL);
+            }
             furi_hal_speaker_release();
             if(instance->speaker_state == SubGhzSpeakerStateShutdown)
                 instance->speaker_state = SubGhzSpeakerStateDisable;
@@ -463,18 +475,28 @@ void subghz_txrx_speaker_off(SubGhzTxRx* instance) {
 
 void subghz_txrx_speaker_mute(SubGhzTxRx* instance) {
     furi_assert(instance);
+    if(instance->debug_pin_state) {
+        subghz_devices_set_async_mirror_pin(instance->radio_device, NULL);
+    }
     if(instance->speaker_state == SubGhzSpeakerStateEnable) {
         if(furi_hal_speaker_is_mine()) {
-            subghz_devices_set_async_mirror_pin(instance->radio_device, NULL);
+            if(!instance->debug_pin_state) {
+                subghz_devices_set_async_mirror_pin(instance->radio_device, NULL);
+            }
         }
     }
 }
 
 void subghz_txrx_speaker_unmute(SubGhzTxRx* instance) {
     furi_assert(instance);
+    if(instance->debug_pin_state) {
+        subghz_devices_set_async_mirror_pin(instance->radio_device, &gpio_ibutton);
+    }
     if(instance->speaker_state == SubGhzSpeakerStateEnable) {
         if(furi_hal_speaker_is_mine()) {
-            subghz_devices_set_async_mirror_pin(instance->radio_device, &gpio_speaker);
+            if(!instance->debug_pin_state) {
+                subghz_devices_set_async_mirror_pin(instance->radio_device, &gpio_speaker);
+            }
         }
     }
 }
@@ -531,7 +553,7 @@ void subghz_txrx_receiver_set_filter(SubGhzTxRx* instance, SubGhzProtocolFlag fi
     subghz_receiver_set_filter(instance->receiver, filter);
 }
 
-void subghz_txrx_set_rx_calback(
+void subghz_txrx_set_rx_callback(
     SubGhzTxRx* instance,
     SubGhzReceiverCallback callback,
     void* context) {
@@ -606,7 +628,77 @@ const char* subghz_txrx_radio_device_get_name(SubGhzTxRx* instance) {
     return subghz_devices_get_name(instance->radio_device);
 }
 
-bool subghz_txrx_radio_device_is_frequecy_valid(SubGhzTxRx* instance, uint32_t frequency) {
+bool subghz_txrx_radio_device_is_frequency_valid(SubGhzTxRx* instance, uint32_t frequency) {
     furi_assert(instance);
     return subghz_devices_is_frequency_valid(instance->radio_device, frequency);
+}
+
+bool subghz_txrx_radio_device_is_tx_allowed(SubGhzTxRx* instance, uint32_t frequency) {
+    // TODO: Remake this function to check if the frequency is allowed on specific module - for modules not based on CC1101
+    furi_assert(instance);
+    UNUSED(frequency);
+    /*
+    furi_assert(instance->txrx_state != SubGhzTxRxStateSleep);
+
+    subghz_devices_idle(instance->radio_device);
+    subghz_devices_set_frequency(instance->radio_device, frequency);
+
+    bool ret = subghz_devices_set_tx(instance->radio_device);
+    subghz_devices_idle(instance->radio_device);
+
+    return ret;
+    */
+    return true;
+}
+
+void subghz_txrx_set_debug_pin_state(SubGhzTxRx* instance, bool state) {
+    furi_assert(instance);
+    instance->debug_pin_state = state;
+}
+
+bool subghz_txrx_get_debug_pin_state(SubGhzTxRx* instance) {
+    furi_assert(instance);
+    return instance->debug_pin_state;
+}
+
+void subghz_txrx_reset_dynamic_and_custom_btns(SubGhzTxRx* instance) {
+    furi_assert(instance);
+    subghz_environment_reset_keeloq(instance->environment);
+
+    faac_slh_reset_prog_mode();
+
+    subghz_custom_btns_reset();
+}
+
+SubGhzReceiver* subghz_txrx_get_receiver(SubGhzTxRx* instance) {
+    furi_assert(instance);
+    return instance->receiver;
+}
+
+void subghz_txrx_set_default_preset(SubGhzTxRx* instance, uint32_t frequency) {
+    furi_assert(instance);
+
+    const char* default_modulation = "AM650";
+    if(frequency == 0) {
+        frequency = subghz_setting_get_default_frequency(subghz_txrx_get_setting(instance));
+    }
+    subghz_txrx_set_preset(instance, default_modulation, frequency, NULL, 0);
+}
+
+const char*
+    subghz_txrx_set_preset_internal(SubGhzTxRx* instance, uint32_t frequency, uint8_t index) {
+    furi_assert(instance);
+
+    SubGhzSetting* setting = subghz_txrx_get_setting(instance);
+    const char* preset_name = subghz_setting_get_preset_name(setting, index);
+    subghz_setting_set_default_frequency(setting, frequency);
+
+    subghz_txrx_set_preset(
+        instance,
+        preset_name,
+        frequency,
+        subghz_setting_get_preset_data(setting, index),
+        subghz_setting_get_preset_data_size(setting, index));
+
+    return preset_name;
 }

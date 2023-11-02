@@ -9,8 +9,6 @@
 #include <lib/toolbox/stream/stream.h>
 #include <lib/flipper_format/flipper_format_i.h>
 
-#include <math.h>
-
 #define TAG "SubGhzProtocolBinRaw"
 
 //change very carefully, RAM ends at the most inopportune moment
@@ -113,7 +111,7 @@ const SubGhzProtocolEncoder subghz_protocol_bin_raw_encoder = {
 
 const SubGhzProtocol subghz_protocol_bin_raw = {
     .name = SUBGHZ_PROTOCOL_BIN_RAW_NAME,
-    .type = SubGhzProtocolTypeStatic,
+    .type = SubGhzProtocolTypeBinRAW,
 #ifdef BIN_RAW_DEBUG
     .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_868 |
             SubGhzProtocolFlag_AM | SubGhzProtocolFlag_FM | SubGhzProtocolFlag_Decodable |

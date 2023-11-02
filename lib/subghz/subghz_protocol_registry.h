@@ -10,6 +10,7 @@ extern const SubGhzProtocolRegistry subghz_protocol_registry;
 
 typedef struct SubGhzProtocolDecoderBinRAW SubGhzProtocolDecoderBinRAW;
 
+
 #ifdef __cplusplus
 }
 #endif

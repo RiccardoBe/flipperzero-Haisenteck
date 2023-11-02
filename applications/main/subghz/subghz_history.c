@@ -1,10 +1,10 @@
 #include "subghz_history.h"
 #include <lib/subghz/receiver.h>
-#include <lib/subghz/protocols/came.h>
+#include <lib/toolbox/stream/stream.h>
 
 #include <furi.h>
 
-#define SUBGHZ_HISTORY_MAX 50
+#define SUBGHZ_HISTORY_MAX 55
 #define SUBGHZ_HISTORY_FREE_HEAP 20480
 #define TAG "SubGhzHistory"
 
@@ -12,7 +12,9 @@ typedef struct {
     FuriString* item_str;
     FlipperFormat* flipper_string;
     uint8_t type;
+	uint32_t id;
     SubGhzRadioPreset* preset;
+    FuriHalRtcDateTime datetime;
 } SubGhzHistoryItem;
 
 ARRAY_DEF(SubGhzHistoryItemArray, SubGhzHistoryItem, M_POD_OPLIST)
@@ -89,6 +91,28 @@ void subghz_history_reset(SubGhzHistory* instance) {
     instance->code_last_hash_data = 0;
 }
 
+void subghz_history_delete_item(SubGhzHistory* instance, uint16_t item_id) {
+    furi_assert(instance);
+
+    SubGhzHistoryItemArray_it_t it;
+    //SubGhzHistoryItem* target_item = SubGhzHistoryItemArray_get(instance->history->data, item_id);
+    SubGhzHistoryItemArray_it_last(it, instance->history->data);
+    while(!SubGhzHistoryItemArray_end_p(it)) {
+        SubGhzHistoryItem* item = SubGhzHistoryItemArray_ref(it);
+
+        if(it->index == (size_t)(item_id)) {
+            furi_string_free(item->item_str);
+            furi_string_free(item->preset->name);
+            free(item->preset);
+            flipper_format_free(item->flipper_string);
+            item->type = 0;
+            SubGhzHistoryItemArray_remove(instance->history->data, it);
+        }
+        SubGhzHistoryItemArray_previous(it);
+    }
+    instance->last_index_write--;
+}
+
 uint16_t subghz_history_get_item(SubGhzHistory* instance) {
     furi_assert(instance);
     return instance->last_index_write;
@@ -103,6 +127,11 @@ uint8_t subghz_history_get_type_protocol(SubGhzHistory* instance, uint16_t idx) 
 const char* subghz_history_get_protocol_name(SubGhzHistory* instance, uint16_t idx) {
     furi_assert(instance);
     SubGhzHistoryItem* item = SubGhzHistoryItemArray_get(instance->history->data, idx);
+    if(!item || !item->flipper_string) {
+        FURI_LOG_E(TAG, "Missing Item");
+        furi_string_reset(instance->tmp_string);
+        return furi_string_get_cstr(instance->tmp_string);
+    }
     flipper_format_rewind(item->flipper_string);
     if(!flipper_format_read_string(item->flipper_string, "Protocol", instance->tmp_string)) {
         FURI_LOG_E(TAG, "Missing Protocol");
@@ -135,9 +164,18 @@ bool subghz_history_get_text_space_left(SubGhzHistory* instance, FuriString* out
     return false;
 }
 
+uint16_t subghz_history_get_last_index(SubGhzHistory* instance) {
+    return instance->last_index_write;
+}
 void subghz_history_get_text_item_menu(SubGhzHistory* instance, FuriString* output, uint16_t idx) {
     SubGhzHistoryItem* item = SubGhzHistoryItemArray_get(instance->history->data, idx);
     furi_string_set(output, item->item_str);
+}
+
+void subghz_history_get_time_item_menu(SubGhzHistory* instance, FuriString* output, uint16_t idx) {
+    SubGhzHistoryItem* item = SubGhzHistoryItemArray_get(instance->history->data, idx);
+    FuriHalRtcDateTime* t = &item->datetime;
+    furi_string_printf(output, "%.2d:%.2d:%.2d ", t->hour, t->minute, t->second);
 }
 
 bool subghz_history_add_to_history(
@@ -161,8 +199,7 @@ bool subghz_history_add_to_history(
     instance->code_last_hash_data = subghz_protocol_decoder_base_get_hash_data(decoder_base);
     instance->last_update_timestamp = furi_get_tick();
 
-    FuriString* text;
-    text = furi_string_alloc();
+    FuriString* text = furi_string_alloc();
     SubGhzHistoryItem* item = SubGhzHistoryItemArray_push_raw(instance->history->data);
     item->preset = malloc(sizeof(SubGhzRadioPreset));
     item->type = decoder_base->protocol->type;
@@ -171,6 +208,7 @@ bool subghz_history_add_to_history(
     furi_string_set(item->preset->name, preset->name);
     item->preset->data = preset->data;
     item->preset->data_size = preset->data_size;
+    furi_hal_rtc_get_datetime(&item->datetime);
 
     item->item_str = furi_string_alloc();
     item->flipper_string = flipper_format_string_alloc();
@@ -208,7 +246,8 @@ bool subghz_history_add_to_history(
         if(!flipper_format_read_hex(item->flipper_string, "Key", key_data, sizeof(uint64_t))) {
             FURI_LOG_D(TAG, "No Key");
         }
-        uint64_t data = 0;
+		
+		uint64_t data = 0;
         for(uint8_t i = 0; i < sizeof(uint64_t); i++) {
             data = (data << 8) | key_data[i];
         }

@@ -12,6 +12,8 @@ App(
         "bad_usb",
         "u2f",
         "archive",
+        "clock",
+        "subghz_remote",
         "main_apps_on_start",
     ],
 )

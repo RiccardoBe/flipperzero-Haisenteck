@@ -1,117 +1,221 @@
-<picture>
-    <source media="(prefers-color-scheme: dark)" srcset="/.github/assets/dark_theme_banner.png">
-    <source media="(prefers-color-scheme: light)" srcset="/.github/assets/light_theme_banner.png">
-    <img
-        alt="A pixel art of a Dophin with text: Flipper Zero Official Repo"
-        src="/.github/assets/light_theme_banner.png">
-</picture>
+</a>
+<h3>Haisenteck - Flipper zero firmware Mod</h3><br>
+Link all'installazione dell'ultima release tramite Web Updater: <a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/Haisenteck-Flipper-MOD/03bd11b6dd3b34b2538f7c7139210f69c40d374a/dist/release/flipper-z-f7-update-Haisenteck_V1.1.0.tgz&channel=Haisenteck&version=V1.1.0' target='_blank'>WEB UPDATER - RELEASE</a><br>
+link al file di installazione stabile: <a href='https://github.com/haisenteck/Haisenteck-Flipper-MOD/releases/tag/V1.1.0' target='_blank'>Versione STABILE</a><br>
+Link al file di installazione DEV build: <a href='https://github.com/haisenteck/Haisenteck-Flipper-MOD/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.1.0.tgz' target='_blank'>Versione DEV Build</a><br>
+Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/Flipper_MicroSD' target='_blank'>Contenuti Extra per Micro SD</a><br>
+<br>
+# Novità<br>
+- **FreeRTOS**<br>
+<ul>
+	<li>Upgrade da versione V10.5.1 a V10.6.0</li>
+</ul>
+- **BLUETOOTH**<br>
+<ul>
+	<del><li>modifica a libreria di base per inclusione di diverse modalità del bluetooth notification per presentare il flipper come dispositivo Apple.</li></del>
+	<del><li>creato app per la gestione, si chiama FRUTTIVENDOLO.<br></li></del>
+		<del><ul><li>aprire l'app FRUTTIVENDOLO dalla sezione bluetooth delle app.</li></del>
+		<del><li>selezionare la modalità voluta come da indicazioni a schermo</li></del>
+		<del><li>andare nelle impostazioni bluetooth e avviare/riavviare il bluetooth per rendere effettive le modifiche. risolto, ora si riavvia alla selezione della versione</li></ul></del>
+	
+</ul>
+- **NFC**<br>
+<ul>	
+	<li>aggiunto riconoscimento corretto per le carte<ul>
+ 		<li>MIFARE Classic 4k - emulated (6131 NFC)</li>
+		<li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li>
+	<li>Aggiunto dizionari mifare e non</li>
+ 	<li>aggiunto codici riconoscimento carte</li>
+</ul>
+- **Sub-GHz**<br>
+<ul>
+	<li>SubGHz: Aggiunto AM_Q ai preset di utilizzo</li>
+	<li>SubGhz: Aggiunto TPMS ai preset di utilizzo</li>
+	<li>SubGhz: predisposizione per ulteriori wheather station e comandi dedicati. </li>
+	<li>SubGhz Rolling Flaws - app aggiunta grazie a https://github.com/jamisonderek/flipper-zero-tutorials </li>
+	<li>Subghz Shapshup - app aggiunta e corretto alcune parti di codice</li>
+	<li>SubGhz - Protocolli Aggiunti:<ul>
+		<li>Weather - Acurite 592			-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Acurite 606TX			-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Acurite 609TXC		-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Ambient Wheather		-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Auriol_AHFL			-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Auriol HG06061		-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - GT-WT02				-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - GT-WT03				-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - inFactory-TH			-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - LaCrosse_TX			-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - LaCrosse_TX141THBv2	-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Nexus-TH				-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Oregon V1				-	lettura OK - salvataggio na - invio   </li>
+		<li>Weather - Oregon2				-	lettura OK - salvataggio na - invio   </li>
+		<li>Weather - Oregon3				-	lettura OK - salvataggio na - invio   </li>
+		<li>Weather - ThermoPRO-TX4			-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - TX8300				-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Wendox W6726			-	lettura OK - salvataggio OK - invio   </li>
+		<li>Weather - Baldr Rain (supporto protocolo per Nexus) ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
+		<li>SUBGHZ - X10					-	lettura OK - salvataggio OK - invio   </li>
+		<li>SUBGHZ - POCSAG					-	lettura OK - salvataggio    - invio   </li>
+		<li>SUBGHZ - YALE HSA				-	lettura OK - salvataggio    - invio   </li>
+		<li>TPMS - Schrader GG4				-	lettura OK - salvataggio    - invio   </li>
+		</ul></li>
+</ul>
+- **VARIE**<br>
+<ul>
+	<li>rimosso svariate problematiche relative a submoduli di github bloccati.</li>
+	<li>variazione di svariati parametri per ridurre i tempi morti tra i comandi e la frequenza di base del flipper (a discapito di un consumo leggermente superiore di batteria</li>
+</ul>
 
-# Flipper Zero Firmware
+- **APP**<br>
+<ul>
 
-- [Flipper Zero Official Website](https://flipperzero.one). A simple way to explain to your friends what Flipper Zero can do.
-- [Flipper Zero Firmware Update](https://update.flipperzero.one). Improvements for your dolphin: latest firmware releases, upgrade tools for PC and mobile devices.
-- [User Documentation](https://docs.flipperzero.one). Learn more about your dolphin: specs, usage guides, and anything you want to ask.
+<li>[BMI160] Air Mouse</li>
+<li>Apple BLE Spam</li>
+<li>continuity</li>
+<li>Arkanoid</li>
+<li>AVR Flasher</li>
+<li>driver</li>
+<li>Bad BT</li>
+<li>Barcode App</li>
+<li>BarCode ScannerE</li>
+<li>Blackjack</li>
+<li>Bomberduck</li>
+<li>Brutefoce</li>
+<li>BT Serial App</li>
+<li>Calendar</li>
+<li>[ESP32] Camera Suite</li>
+<li>Chess</li>
+<li>Chess Clock</li>
+<li>CLI-GUI Bridge</li>
+<li>DOOM</li>
+<li>DTMF Dolphin</li>
+<li>DVD Bouncer</li>
+<li>[ESP32] Gravity</li>
+<li>[ESP8266] Deauther</li>
+<li>Enhanced Sub-Ghz Chat</li>
+<li>Etch A Sketch</li>
+<li>Flappy Bird</li>
+<li>Flipagotchi</li>
+<li>FlipBIP Crypto Wallet</li>
+<li>crypto</li>
+<li>Nightstand Clock</li>
+<li>Scope</li>
+<li>[ESP32] Camera</li>
+<li>ESP Flasher</li>
+<li>esp-serial-flasher</li>
+<li>QR Code</li>
+<li>[GPIO] Input Reader 2</li>
+<li>VB Migration Assistant</li>
+<li>Atomic Dice Roller</li>
+<li>Chronometer</li>
+<li>[ESP32] Evil Portal</li>
+<li>[GPIO] i2c Tools</li>
+<li>Radiation Sensor</li>
+<li>RFID Beacon</li>
+<li>Flizzer Tracker</li>
+<li>FRUTTIVENDOLO</li>
+<li>Game 15</li>
+<li>2048</li>
+<li>Pokemon Trading</li>
+<li>GPIO Controller</li>
+<li>[NMEA] GPS</li>
+<li>[HC-SR] Dist. Sensor</li>
+<li>Heap Defence</li>
+<li>HEX Viewer</li>
+<li>USB Keyboard & Mouse</li>
+<li>Bluetooth Remote</li>
+<li>[ESP] IFTTT Button</li>
+<li>IR Remote</li>
+<li>IR Scope</li>
+<li>Jetpack Joyride</li>
+<li>[BH1750] Lightmeter</li>
+<li>BH1750</li>
+<li>Logic Analyzer</li>
+<li>LoRA_Terminal</li>
+<li>MagSpoof</li>
+<li>Mass Storage</li>
+<li>[Mx2125] Accelerometer</li>
+<li>Metronome</li>
+<li>Mfkey32</li>
+<li>[MH-Z19] CO2 sensor</li>
+<li>Mifare Nested</li>
+<li>nested</li>
+<li>parity</li>
+<li>crypto1</li>
+<li>Minesweeper</li>
+<li>Morse Code</li>
+<li>[NRF24] Mouse Jacker</li>
+<li>nrf24</li>
+<li>Multi Converter</li>
+<li>Multi Counter</li>
+<li>Music Beeper</li>
+<li>Music Player</li>
+<li>NFC Magic</li>
+<li>magic</li>
+<li>NFC Maker</li>
+<li>NFC/RFID detector</li>
+<li>[NRF24] Batch</li>
+<li>nrf24</li>
+<li>[NRF24] Scanner</li>
+<li>nrf24</li>
+<li>[NRF24] Sniffer</li>
+<li>nrf24</li>
+<li>[iClass] PicoPass</li>
+<li>loclass</li>
+<li>Sub-GHz Playlist</li>
+<li>POCSAG Pager</li>
+<li>ProtoView</li>
+<li>RC2014 ColecoVision</li>
+<li>[RCWL-0516] Motion Sensor</li>
+<li>Subghz Rolling Flaws</li>
+<li>SUPER-CHIP</li>
+<li>Seader</li>
+<li>asn1</li>
+<li>Secret Toggle</li>
+<li>[GPIO] Sentry Safe</li>
+<li>Servo Tester 2</li>
+<li>Shapshup</li>
+<li>Signal Generator</li>
+<li>Simon Says</li>
+<li>Snake Game</li>
+<li>Solitaire</li>
+<li>Spectrum Analyzer</li>
+<li>SPI Mem Manager</li>
+<li>spi</li>
+<li>Sudoku</li>
+<li>SWD Probe</li>
+<li>TAMA P1</li>
+<li>Tanks</li>
+<li>TAS playback</li>
+<li>Tetris</li>
+<li>Text Viewer</li>
+<li>Tic Tac Toe</li>
+<li>TPMS Reader</li>
+<li>UART Terminal</li>
+<li>u-blox GPS</li>
+<li>[YRM100] UHF RFID</li>
+<li>Temp sensors reader</li>
+<li>USB HID Autofire</li>
+<li>USB Midi</li>
+<li>[USPING] Dist. Sensor</li>
+<li>Video Player</li>
+<li>WAV Player</li>
+<li>Weather Station</li>
+<li>Wiegand Reader</li>
+<li>WIFI Mapping</li>
+<li>[ESP8266] Deauther v2</li>
+<li>[ESP32] WiFi Marauder</li>
+<li>[WiFi] Scanner</li>
+<li>Wii EC Analyser</li>
+<li>[GPIO] Wire Tester</li>
+<li>Zombiez</li>
 
-# Contributing
 
-Our main goal is to build a healthy and sustainable community around Flipper, so we're open to any new ideas and contributions. We also have some rules and taboos here, so please read this page and our [Code of Conduct](/CODE_OF_CONDUCT.md) carefully.
-
-## I need help
-
-The best place to search for answers is our [User Documentation](https://docs.flipperzero.one). If you can't find the answer there, check our [Discord Server](https://flipp.dev/discord) or our [Forum](https://forum.flipperzero.one/).
-
-## I want to report an issue
-
-If you've found an issue and want to report it, please check our [Issues](https://github.com/flipperdevices/flipperzero-firmware/issues) page. Make sure the description contains information about the firmware version you're using, your platform, and a clear explanation of the steps to reproduce the issue.
-
-## I want to contribute code
-
-Before opening a PR, please confirm that your changes must be contained in the firmware. Many ideas can easily be implemented as external applications and published in the [Flipper Application Catalog](https://github.com/flipperdevices/flipper-application-catalog). If you are unsure, reach out to us on the [Discord Server](https://flipp.dev/discord) or the [Issues](https://github.com/flipperdevices/flipperzero-firmware/issues) page, and we'll help you find the right place for your code.
-
-Also, please read our [Contribution Guide](/CONTRIBUTING.md) and our [Coding Style](/CODING_STYLE.md), and make sure your code is compatible with our [Project License](/LICENSE).
-
-Finally, open a [Pull Request](https://github.com/flipperdevices/flipperzero-firmware/pulls) and make sure that CI/CD statuses are all green.
-
-# Development
-
-Flipper Zero Firmware is written in C, with some bits and pieces written in C++ and armv7m assembly languages. An intermediate level of C knowledge is recommended for comfortable programming. C, C++, and armv7m assembly languages are supported for Flipper applications.
-
-# Firmware RoadMap
-
-[Firmware RoadMap Miro Board](https://miro.com/app/board/uXjVO_3D6xU=/)
-
-## Requirements
-
-Supported development platforms:
-
-- Windows 10+ with PowerShell and Git (x86_64)
-- macOS 12+ with Command Line tools (x86_64, arm64)
-- Ubuntu 20.04+ with build-essential and Git (x86_64)
-
-Supported in-circuit debuggers (optional but highly recommended):
-
-- [Flipper Zero Wi-Fi Development Board](https://shop.flipperzero.one/products/wifi-devboard)
-- ST-Link
-- J-Link
-
-Flipper Build System will take care of all the other dependencies.
-
-## Cloning source code
-
-Make sure you have enough space and clone the source code:
-
-```shell
-git clone --recursive https://github.com/flipperdevices/flipperzero-firmware.git
-```
-
-## Building
-
-Build firmware using Flipper Build Tool:
-
-```shell
-./fbt
-```
-
-## Flashing firmware using an in-circuit debugger
-
-Connect your in-circuit debugger to your Flipper and flash firmware using Flipper Build Tool:
-
-```shell
-./fbt flash
-```
-
-## Flashing firmware using USB
-
-Make sure your Flipper is on, and your firmware is functioning. Connect your Flipper with a USB cable and flash firmware using Flipper Build Tool:
-
-```shell
-./fbt flash_usb
-```
-
-## Documentation
-
-- [Flipper Build Tool](/documentation/fbt.md) - building, flashing, and debugging Flipper software
-- [Applications](/documentation/AppsOnSDCard.md), [Application Manifest](/documentation/AppManifests.md) - developing, building, deploying, and debugging Flipper applications
-- [Hardware combos and Un-bricking](/documentation/KeyCombo.md) - recovering your Flipper from the most nasty situations
-- [Flipper File Formats](/documentation/file_formats) - everything about how Flipper stores your data and how you can work with it
-- [Universal Remotes](/documentation/UniversalRemotes.md) - contributing your infrared remote to the universal remote database
-- And much more in the [documentation](/documentation) folder
-
-# Project structure
-
-- `applications`    - applications and services used in firmware
-- `assets`          - assets used by applications and services
-- `furi`            - Furi Core: OS-level primitives and helpers
-- `documentation`   - documentation generation system configs and input files
-- `firmware`        - firmware source code
-- `lib`             - our and 3rd party libraries, drivers, etc.
-- `scripts`         - supplementary scripts and python libraries home
-
-Also, see `ReadMe.md` files inside those directories for further details.
-
-# Links
-
-- Discord: [flipp.dev/discord](https://flipp.dev/discord)
-- Website: [flipperzero.one](https://flipperzero.one)
-- Forum: [forum.flipperzero.one](https://forum.flipperzero.one/)
-- Kickstarter: [kickstarter.com](https://www.kickstarter.com/projects/flipper-devices/flipper-zero-tamagochi-for-hackers)
+</ul>
+<br>
+<br>
+#### **This firmware is a fork from** [FLIPPER ZERO OFFICIAL FIRMWARE](https://github.com/flipperdevices/flipperzero-firmware) <br>
+and part take from: [DarkFlippers/unleashed-firmware](https://github.com/DarkFlippers/unleashed-firmware)<br>
+app from: https://github.com/xMasterX/all-the-plugins <br>
+and many other repository or source. <br>
+<br>

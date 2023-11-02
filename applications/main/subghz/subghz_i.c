@@ -4,29 +4,12 @@
 #include "subghz/types.h"
 #include <math.h>
 #include <furi.h>
-#include <furi_hal.h>
-#include <input/input.h>
-#include <gui/elements.h>
 #include <notification/notification.h>
 #include <notification/notification_messages.h>
 #include <flipper_format/flipper_format.h>
-#include "views/receiver.h"
-
 #include <flipper_format/flipper_format_i.h>
-#include <lib/toolbox/stream/stream.h>
-#include <lib/subghz/protocols/raw.h>
 
 #define TAG "SubGhz"
-
-void subghz_set_default_preset(SubGhz* subghz) {
-    furi_assert(subghz);
-    subghz_txrx_set_preset(
-        subghz->txrx,
-        "AM650",
-        subghz_setting_get_default_frequency(subghz_txrx_get_setting(subghz->txrx)),
-        NULL,
-        0);
-}
 
 void subghz_blink_start(SubGhz* subghz) {
     furi_assert(subghz);
@@ -46,7 +29,7 @@ bool subghz_tx_start(SubGhz* subghz, FlipperFormat* flipper_format) {
             subghz->dialogs, "Error in protocol\nparameters\ndescription");
         break;
     case SubGhzTxRxStartTxStateErrorOnlyRx:
-        subghz_dialog_message_show_only_rx(subghz);
+        subghz_dialog_message_freq_error(subghz, true);
         break;
 
     default:
@@ -56,15 +39,15 @@ bool subghz_tx_start(SubGhz* subghz, FlipperFormat* flipper_format) {
     return false;
 }
 
-void subghz_dialog_message_show_only_rx(SubGhz* subghz) {
+void subghz_dialog_message_freq_error(SubGhz* subghz, bool only_rx) {
     DialogsApp* dialogs = subghz->dialogs;
     DialogMessage* message = dialog_message_alloc();
+    const char* header_text = "Frequency not supported";
+    const char* message_text = "Frequency\nis outside of\nsupported range.";
 
-    const char* header_text = "Transmission is blocked";
-    const char* message_text = "Transmission on\nthis frequency is\nrestricted in\nyour region";
-    if(!furi_hal_region_is_provisioned()) {
-        header_text = "Firmware update needed";
-        message_text = "Please update\nfirmware before\nusing this feature\nflipp.dev/upd";
+    if(only_rx) {
+        header_text = "Transmission is blocked";
+        message_text = "Frequency\nis outside of\ndefault range.\nCheck docs.";
     }
 
     dialog_message_set_header(message, header_text, 63, 3, AlignCenter, AlignTop);
@@ -115,8 +98,16 @@ bool subghz_key_load(SubGhz* subghz, const char* file_path, bool show_dialog) {
             break;
         }
 
-        if(!subghz_txrx_radio_device_is_frequecy_valid(subghz->txrx, temp_data32)) {
-            FURI_LOG_E(TAG, "Frequency not supported");
+        if(!subghz_txrx_radio_device_is_frequency_valid(subghz->txrx, temp_data32)) {
+            FURI_LOG_E(TAG, "Frequency not supported on chosen radio module");
+            load_key_state = SubGhzLoadKeyStateUnsuportedFreq;
+            break;
+        }
+
+        // TODO: use different frequency allowed lists for differnet modules (non cc1101)
+        if(!furi_hal_subghz_is_tx_allowed(temp_data32)) {
+            FURI_LOG_E(TAG, "This frequency can only be used for RX");
+            load_key_state = SubGhzLoadKeyStateOnlyRx;
             break;
         }
 
@@ -205,6 +196,18 @@ bool subghz_key_load(SubGhz* subghz, const char* file_path, bool show_dialog) {
         }
         return false;
 
+    case SubGhzLoadKeyStateUnsuportedFreq:
+        if(show_dialog) {
+            subghz_dialog_message_freq_error(subghz, false);
+        }
+        return false;
+
+    case SubGhzLoadKeyStateOnlyRx:
+        if(show_dialog) {
+            subghz_dialog_message_freq_error(subghz, true);
+        }
+        return false;
+
     case SubGhzLoadKeyStateOK:
         return true;
 
@@ -278,7 +281,7 @@ bool subghz_save_protocol_to_file(
     do {
         //removing additional fields
         flipper_format_delete_key(flipper_format, "Repeat");
-        flipper_format_delete_key(flipper_format, "Manufacture");
+        //flipper_format_delete_key(flipper_format, "Manufacture");
 
         // Create subghz folder directory if necessary
         if(!storage_simply_mkdir(storage, furi_string_get_cstr(file_dir))) {
@@ -289,6 +292,7 @@ bool subghz_save_protocol_to_file(
         if(!storage_simply_remove(storage, dev_file_name)) {
             break;
         }
+
         stream_seek(flipper_format_stream, 0, StreamOffsetFromStart);
         stream_save_to_file(flipper_format_stream, storage, dev_file_name, FSOM_CREATE_ALWAYS);
 
