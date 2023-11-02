@@ -45,9 +45,6 @@ Brewfile.lock.json
 /.vscode
 
 # bundle output
-/dist
-
-# SCons build dir
 /build
 
 # Toolchain
