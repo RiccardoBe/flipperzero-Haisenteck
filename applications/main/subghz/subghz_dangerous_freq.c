@@ -1,6 +1,14 @@
 #include <furi.h>
 #include <furi_hal.h>
 
+#include <furi/core/timer.h>
+#include <applications/services/gui/gui.h>
+#include <applications/services/cli/cli.h>
+#include <applications/services/dialogs/dialogs.h>
+#include <applications/services/storage/storage.h>
+#include <gui/modules/variable_item_list.h>
+
+
 #include <targets/f7/furi_hal/furi_hal_subghz_i.h>
 
 #include <flipper_format/flipper_format_i.h>

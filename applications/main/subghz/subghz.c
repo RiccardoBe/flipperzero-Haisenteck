@@ -1,6 +1,16 @@
 /* Abandon hope, all ye who enter here. */
 
 #include <furi/core/log.h>
+#include <furi/core/timer.h>
+#include <targets/f7/furi_hal/furi_hal_debug.c>
+#include <targets/f7/furi_hal/furi_hal_subghz.h>
+#include <targets/f7/furi_hal/furi_hal_subghz_i.h>
+
+#include <applications/services/gui/gui.h>
+#include <applications/services/cli/cli.h>
+#include <applications/services/dialogs/dialogs.h>
+#include <applications/services/storage/storage.h>
+#include <gui/modules/variable_item_list.h>
 #include <subghz/types.h>
 #include <lib/toolbox/path.h>
 #include <float_tools.h>
@@ -112,7 +122,9 @@ SubGhz* subghz_alloc(bool alloc_for_tx_only) {
 
     // Open Notification record
     subghz->notifications = furi_record_open(RECORD_NOTIFICATION);
-
+#if SUBGHZ_MEASURE_LOADING
+    uint32_t load_ticks = furi_get_tick();
+#endif
     subghz->txrx = subghz_txrx_alloc();
 
     if(!alloc_for_tx_only) {
@@ -202,9 +214,13 @@ SubGhz* subghz_alloc(bool alloc_for_tx_only) {
     subghz_last_settings_log(subghz->last_settings);
 #endif
     if(!alloc_for_tx_only) {
+#if SUBGHZ_LAST_SETTING_SAVE_PRESET
         subghz_txrx_set_preset_internal(
             subghz->txrx, subghz->last_settings->frequency, subghz->last_settings->preset_index);
-		subghz->history = subghz_history_alloc();
+#else
+        subghz_txrx_set_default_preset(subghz->txrx, subghz->last_settings->frequency);
+#endif
+        subghz->history = subghz_history_alloc();
     }
 
     subghz_rx_key_state_set(subghz, SubGhzRxKeyStateIDLE);
@@ -221,13 +237,17 @@ SubGhz* subghz_alloc(bool alloc_for_tx_only) {
     subghz_txrx_receiver_set_filter(subghz->txrx, subghz->filter);
     subghz_txrx_set_need_save_callback(subghz->txrx, subghz_save_to_file, subghz);
 
-	if(!alloc_for_tx_only) {
+    if(!alloc_for_tx_only) {
         if(!float_is_equal(subghz->last_settings->rssi, 0)) {
             subghz_threshold_rssi_set(subghz->threshold_rssi, subghz->last_settings->rssi);
         } else {
             subghz->last_settings->rssi = SUBGHZ_LAST_SETTING_FREQUENCY_ANALYZER_TRIGGER;
         }
     }
+#if SUBGHZ_MEASURE_LOADING
+    load_ticks = furi_get_tick() - load_ticks;
+    FURI_LOG_I(TAG, "Loaded: %ld ms.", load_ticks);
+#endif
     //Init Error_str
     subghz->error_str = furi_string_alloc();
 

@@ -7,6 +7,13 @@
 #include <lib/subghz/types.h>
 
 #define SUBGHZ_LAST_SETTING_FREQUENCY_ANALYZER_TRIGGER (-93.0f)
+#define SUBGHZ_LAST_SETTING_SAVE_BIN_RAW true
+#define SUBGHZ_LAST_SETTING_SAVE_PRESET true
+// 1 = "AM650"
+// "AM270", "AM650", "FM238", "FM476",
+#define SUBGHZ_LAST_SETTING_DEFAULT_PRESET 1
+#define SUBGHZ_LAST_SETTING_DEFAULT_FREQUENCY 433920000
+#define SUBGHZ_LAST_SETTING_FREQUENCY_ANALYZER_FEEDBACK_LEVEL 2
 
 typedef struct {
     uint32_t frequency;
@@ -19,10 +26,9 @@ typedef struct {
     bool external_module_power_amp;
     // saved so as not to change the version
     bool timestamp_file_names;
-	bool enable_hopping;
-	uint32_t ignore_filter;
+    bool enable_hopping;
+    uint32_t ignore_filter;
     uint32_t filter;
-    uint32_t sound;
     float rssi;
 } SubGhzLastSettings;
 

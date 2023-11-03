@@ -1,5 +1,6 @@
 #include <furi_hal_region.h>
 #include <furi_hal_version.h>
+#include <furi.h>
 
 const FuriHalRegion furi_hal_region_zero = {
     .country_code = "00",
@@ -87,7 +88,7 @@ void furi_hal_region_init() {
 }
 
 const FuriHalRegion* furi_hal_region_get() {
-    return furi_hal_region;
+    return &furi_hal_region_zero;
 }
 
 void furi_hal_region_set(FuriHalRegion* region) {
@@ -118,8 +119,8 @@ bool furi_hal_region_is_frequency_allowed(uint32_t frequency) {
 
     return true;
 }
-
 const FuriHalRegionBand* furi_hal_region_get_band(uint32_t frequency) {
+    furi_hal_region = &furi_hal_region_zero;
     if(!furi_hal_region) {
         return NULL;
     }

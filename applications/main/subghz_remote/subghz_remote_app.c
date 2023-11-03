@@ -1,5 +1,39 @@
 #include "subghz_remote_app_i.h"
 #include <lib/toolbox/version.h>
+#include <furi.h>
+#include <furi_hal.h>
+
+#include <gui/elements.h>
+#include <input/input.h>
+#include <stdlib.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
+#include <unistd.h>
+#include <storage/storage.h>
+#include <toolbox/stream/buffered_file_stream.h>
+#include <lib/toolbox/args.h>
+#include <lib/flipper_format/flipper_format.h>
+#include <dolphin/dolphin.h>
+#include <lib/toolbox/path.h>
+
+#include <gui/gui.h>
+#include <gui/view_dispatcher.h>
+#include <gui/scene_manager.h>
+#include <gui/modules/submenu.h>
+#include <gui/modules/variable_item_list.h>
+#include <gui/modules/widget.h>
+#include <notification/notification_messages.h>
+
+#include <lib/subghz/subghz_setting.h>
+#include <lib/subghz/subghz_worker.h>
+#include <lib/subghz/receiver.h>
+#include <lib/subghz/transmitter.h>
+#include <lib/subghz/registry.h>
+#include <lib/subghz/devices/devices.h>
+
+
 
 static bool subghz_remote_app_custom_event_callback(void* context, uint32_t event) {
     furi_assert(context);

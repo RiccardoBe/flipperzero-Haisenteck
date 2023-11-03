@@ -5,7 +5,7 @@ App(
     entry_point="clock_app",
     icon="A_Clock_14",
     stack_size=2 * 1024,
-    order=81,
+    order=458,
     fap_icon="icon.png",
     fap_category="Tools",
 )

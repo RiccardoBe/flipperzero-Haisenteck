@@ -232,7 +232,7 @@ static size_t
     } else if(horizontal == AlignRight) {
         px_left = x;
     } else {
-        furi_crash();
+        furi_assert(0);
     }
 
     if(len_px > px_left) {
@@ -290,8 +290,8 @@ void elements_multiline_text_aligned(
         } else if((y + font_height) > canvas_height(canvas)) {
             line = furi_string_alloc_printf("%.*s...\n", chars_fit, start);
         } else {
-            chars_fit -= 1; // account for the dash
-            line = furi_string_alloc_printf("%.*s-\n", chars_fit, start);
+            // Account for the added "-" in length
+            line = furi_string_alloc_printf("%.*s-\n", chars_fit - 1, start);
         }
         canvas_draw_str_aligned(canvas, x, y, horizontal, vertical, furi_string_get_cstr(line));
         furi_string_free(line);
@@ -574,6 +574,64 @@ void elements_string_fit_width(Canvas* canvas, FuriString* string, uint8_t width
     }
 }
 
+void elements_scrollable_text_line_str(
+    Canvas* canvas,
+    uint8_t x,
+    uint8_t y,
+    uint8_t width,
+    const char* string,
+    size_t scroll,
+    bool ellipsis,
+    bool centered) {
+    FuriString* line = furi_string_alloc_set_str(string);
+
+    size_t len_px = canvas_string_width(canvas, furi_string_get_cstr(line));
+    if(len_px > width) {
+        if(centered) {
+            centered = false;
+            x -= width / 2;
+        }
+
+        if(ellipsis) {
+            width -= canvas_string_width(canvas, "...");
+        }
+
+        // Calculate scroll size
+        size_t scroll_size = furi_string_size(line);
+        size_t right_width = 0;
+        for(size_t i = scroll_size - 1; i > 0; i--) {
+            right_width += canvas_glyph_width(canvas, furi_string_get_char(line, i));
+            if(right_width > width) break;
+            scroll_size--;
+            if(!scroll_size) break;
+        }
+        // Ensure that we have something to scroll
+        if(scroll_size) {
+            scroll_size += 3;
+            scroll = scroll % scroll_size;
+            furi_string_right(line, scroll);
+        }
+
+        len_px = canvas_string_width(canvas, furi_string_get_cstr(line));
+        while(len_px > width) {
+            furi_string_left(line, furi_string_size(line) - 1);
+            len_px = canvas_string_width(canvas, furi_string_get_cstr(line));
+        }
+
+        if(ellipsis) {
+            furi_string_cat(line, "...");
+        }
+    }
+
+    if(centered) {
+        canvas_draw_str_aligned(
+            canvas, x, y, AlignCenter, AlignBottom, furi_string_get_cstr(line));
+    } else {
+        canvas_draw_str(canvas, x, y, furi_string_get_cstr(line));
+    }
+    furi_string_free(line);
+}
+
 void elements_scrollable_text_line(
     Canvas* canvas,
     uint8_t x,
@@ -636,8 +694,8 @@ void elements_text_box(
     ElementTextBoxLine line[ELEMENTS_MAX_LINES_NUM];
     bool bold = false;
     bool mono = false;
-    bool inversed = false;
-    bool inversed_present = false;
+    bool inverse = false;
+    bool inverse_present = false;
     Font current_font = FontSecondary;
     Font prev_font = FontSecondary;
     const CanvasFontParameters* font_params = canvas_get_font_params(canvas, current_font);
@@ -693,8 +751,8 @@ void elements_text_box(
                 canvas_set_font(canvas, FontKeyboard);
                 mono = !mono;
             }
-            if(text[i] == ELEMENTS_INVERSED_MARKER) {
-                inversed_present = true;
+            if(text[i] == ELEMENTS_INVERSE_MARKER) {
+                inverse_present = true;
             }
             continue;
         }
@@ -710,10 +768,10 @@ void elements_text_box(
             if(text[i] == '\0') {
                 full_text_processed = true;
             }
-            if(inversed_present) {
+            if(inverse_present) {
                 line_leading_min += 1;
                 line_leading_default += 1;
-                inversed_present = false;
+                inverse_present = false;
             }
             line[line_num].leading_min = line_leading_min;
             line[line_num].leading_default = line_leading_default;
@@ -776,7 +834,7 @@ void elements_text_box(
     canvas_set_font(canvas, FontSecondary);
     bold = false;
     mono = false;
-    inversed = false;
+    inverse = false;
     for(uint8_t i = 0; i < line_num; i++) {
         for(uint8_t j = 0; j < line[i].len; j++) {
             // Process format symbols
@@ -800,11 +858,11 @@ void elements_text_box(
                 mono = !mono;
                 continue;
             }
-            if(line[i].text[j] == ELEMENTS_INVERSED_MARKER) {
-                inversed = !inversed;
+            if(line[i].text[j] == ELEMENTS_INVERSE_MARKER) {
+                inverse = !inverse;
                 continue;
             }
-            if(inversed) {
+            if(inverse) {
                 canvas_draw_box(
                     canvas,
                     line[i].x - 1,

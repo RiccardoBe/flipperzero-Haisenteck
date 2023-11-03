@@ -7,10 +7,13 @@ from datetime import date, datetime
 
 from flipper.app import App
 
+from pathlib import Path
+import posixpath
+
 
 class GitVersion:
     REVISION_SUFFIX_LENGTH = 8
-
+    VERSION_FILE = "versione.txt"
     def __init__(self, source_dir):
         self.source_dir = source_dir
 
@@ -30,15 +33,34 @@ class GitVersion:
         # If WORKFLOW_BRANCH_OR_TAG is set in environment, is has precedence
         # (set by CI)
         branch = (
-            os.environ.get("WORKFLOW_BRANCH_OR_TAG", None)
-            or self._exec_git("rev-parse --abbrev-ref HEAD")
-            or "unknown"
+            "Haisenteck"
+            #os.environ.get("WORKFLOW_BRANCH_OR_TAG", None)
+            #or self._exec_git("rev-parse --abbrev-ref HEAD")
+            #or "unknown"
+        )
+        
+        VERSION_FILE = "versione.txt"
+        # Controlla se il file esiste nella stessa cartella del firmware
+        if Path(VERSION_FILE).exists():
+            # Leggi il contenuto del file e assegna il valore a UPDATE_VERSION_STRING
+            with open(VERSION_FILE, 'r') as version_file:
+                UPDATE_VERSION_STRING = version_file.read().strip()
+        else:
+            # Imposta un valore predefinito nel caso il file non esista
+            UPDATE_VERSION_STRING = "DEBUG_v"
+        
+        version = (
+            UPDATE_VERSION_STRING
+            #os.environ.get("DIST_SUFFIX", None)
+            #or "unknown"
         )
 
-        try:
-            version = self._exec_git("describe --tags --abbrev=0 --exact-match")
-        except subprocess.CalledProcessError:
-            version = "unknown"
+        force_no_dirty = (
+            os.environ.get("FORCE_NO_DIRTY", None)
+            or ""
+        )
+        if (force_no_dirty != ""):
+            dirty = False
 
         if "SOURCE_DATE_EPOCH" in os.environ:
             commit_date = datetime.utcfromtimestamp(
@@ -55,9 +77,11 @@ class GitVersion:
             "GIT_BRANCH": branch,
             "VERSION": version,
             "BUILD_DIRTY": dirty and 1 or 0,
-            "GIT_ORIGIN": ",".join(self._get_git_origins()),
+            "GIT_ORIGIN": "https://github.com/haisenteck/Haisenteck-Flipper-MOD.git",
             "GIT_COMMIT_DATE": commit_date,
         }
+    
+    # "GIT_ORIGIN": ",".join(self._get_git_origins()),
 
     def _get_git_origins(self):
         try:
@@ -166,6 +190,7 @@ class Main(App):
             "firmware_commit": current_info["GIT_COMMIT"],
             "firmware_branch": current_info["GIT_BRANCH"],
             "firmware_target": current_info["TARGET"],
+            "firmware_version": current_info["VERSION"],
         }
         with open(version_json_name, "w", newline="\n") as file:
             json.dump(version_json, file, indent=4)

@@ -6,7 +6,7 @@ App(
     targets=["f7"],
     icon="A_Infrared_14",
     stack_size=3 * 1024,
-    order=40,
+    order=455,
     sources=["*.c", "!infrared_cli.c"],
     resources="resources",
     fap_libs=["assets"],
@@ -24,5 +24,5 @@ App(
         "infrared_brute_force.c",
         "infrared_signal.c",
     ],
-    order=20,
+    order=455,
 )

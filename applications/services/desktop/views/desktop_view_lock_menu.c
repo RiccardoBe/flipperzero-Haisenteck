@@ -60,13 +60,13 @@ void desktop_lock_menu_draw_callback(Canvas* canvas, void* model) {
             str = "Lock";
         } else if(i == DesktopLockMenuIndexStealth) {
             if(m->stealth_mode) {
-                str = "Unmute";
+                str = "Sound Mode";
             } else {
-                str = "Mute";
+                str = "Stealth Mode";
             }
         } else if(i == DesktopLockMenuIndexDummy) { //-V547
             if(m->dummy_mode) {
-                str = "Default Mode";
+                str = "Brainiac Mode";
             } else {
                 str = "Dummy Mode";
             }
@@ -127,7 +127,7 @@ bool desktop_lock_menu_input_callback(InputEvent* event, void* context) {
 
     if(event->key == InputKeyOk) {
         if((idx == DesktopLockMenuIndexLock)) {
-            if((event->type == InputTypeShort)) {
+            if(event->type == InputTypeShort) {
                 lock_menu->callback(DesktopLockMenuEventLock, lock_menu->context);
             }
         } else if(idx == DesktopLockMenuIndexStealth) {

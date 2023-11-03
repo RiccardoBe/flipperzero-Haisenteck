@@ -166,6 +166,16 @@ void cli_command_date(Cli* cli, FuriString* args, void* context) {
     }
 }
 
+void cli_command_src(Cli* cli, FuriString* args, void* context) {
+    // Quality of life feature for people exploring CLI on lab.flipper.net/cli
+    // By Yousef AK
+    UNUSED(cli);
+    UNUSED(args);
+    UNUSED(context);
+
+    printf("https://github.com/DarkFlippers/unleashed-firmware");
+}
+
 #define CLI_COMMAND_LOG_RING_SIZE 2048
 #define CLI_COMMAND_LOG_BUFFER_SIZE 64
 
@@ -455,6 +465,7 @@ void cli_commands_init(Cli* cli) {
     cli_add_command(cli, "!", CliCommandFlagParallelSafe, cli_command_info, (void*)true);
     cli_add_command(cli, "info", CliCommandFlagParallelSafe, cli_command_info, NULL);
     cli_add_command(cli, "device_info", CliCommandFlagParallelSafe, cli_command_info, (void*)true);
+    cli_add_command(cli, "source", CliCommandFlagParallelSafe, cli_command_src, NULL);
 
     cli_add_command(cli, "?", CliCommandFlagParallelSafe, cli_command_help, NULL);
     cli_add_command(cli, "help", CliCommandFlagParallelSafe, cli_command_help, NULL);
@@ -462,7 +473,8 @@ void cli_commands_init(Cli* cli) {
     cli_add_command(cli, "uptime", CliCommandFlagDefault, cli_command_uptime, NULL);
     cli_add_command(cli, "date", CliCommandFlagParallelSafe, cli_command_date, NULL);
     cli_add_command(cli, "log", CliCommandFlagParallelSafe, cli_command_log, NULL);
-    cli_add_command(cli, "sysctl", CliCommandFlagDefault, cli_command_sysctl, NULL);
+    cli_add_command(cli, "l", CliCommandFlagParallelSafe, cli_command_log, NULL);
+	cli_add_command(cli, "sysctl", CliCommandFlagDefault, cli_command_sysctl, NULL);
     cli_add_command(cli, "ps", CliCommandFlagParallelSafe, cli_command_ps, NULL);
     cli_add_command(cli, "free", CliCommandFlagParallelSafe, cli_command_free, NULL);
     cli_add_command(cli, "free_blocks", CliCommandFlagParallelSafe, cli_command_free_blocks, NULL);

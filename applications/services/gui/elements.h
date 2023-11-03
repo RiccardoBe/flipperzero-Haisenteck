@@ -19,7 +19,7 @@ extern "C" {
 #define ELEMENTS_MAX_LINES_NUM (7)
 #define ELEMENTS_BOLD_MARKER '#'
 #define ELEMENTS_MONO_MARKER '*'
-#define ELEMENTS_INVERSED_MARKER '!'
+#define ELEMENTS_INVERSE_MARKER '!'
 
 /** Draw progress bar.
  *
@@ -228,6 +228,16 @@ void elements_scrollable_text_line(
     size_t scroll,
     bool ellipsis);
 
+void elements_scrollable_text_line_str(
+    Canvas* canvas,
+    uint8_t x,
+    uint8_t y,
+    uint8_t width,
+    const char* string,
+    size_t scroll,
+    bool ellipsis,
+    bool centered);
+
 /** Draw text box element
  *
  * @param       canvas          Canvas instance
@@ -240,7 +250,7 @@ void elements_scrollable_text_line(
  * @param[in]   text            Formatted text. The following formats are available:
  *                              "\e#Bold text\e#" - bold font is used
  *                              "\e*Monospaced text\e*" - monospaced font is used
- *                              "\e!Inversed text\e!" - white text on black background
+ *                              "\e!Inverted text\e!" - white text on black background
  * @param      strip_to_dots    Strip text to ... if does not fit to width
  */
 void elements_text_box(

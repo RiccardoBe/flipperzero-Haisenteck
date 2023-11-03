@@ -1,6 +1,5 @@
 #include "subghz_history.h"
 #include <lib/subghz/receiver.h>
-#include <lib/toolbox/stream/stream.h>
 
 #include <furi.h>
 
@@ -12,7 +11,6 @@ typedef struct {
     FuriString* item_str;
     FlipperFormat* flipper_string;
     uint8_t type;
-	uint32_t id;
     SubGhzRadioPreset* preset;
     FuriHalRtcDateTime datetime;
 } SubGhzHistoryItem;
@@ -246,8 +244,7 @@ bool subghz_history_add_to_history(
         if(!flipper_format_read_hex(item->flipper_string, "Key", key_data, sizeof(uint64_t))) {
             FURI_LOG_D(TAG, "No Key");
         }
-		
-		uint64_t data = 0;
+        uint64_t data = 0;
         for(uint8_t i = 0; i < sizeof(uint64_t); i++) {
             data = (data << 8) | key_data[i];
         }

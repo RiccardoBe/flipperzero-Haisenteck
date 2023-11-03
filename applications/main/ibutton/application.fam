@@ -6,7 +6,7 @@ App(
     entry_point="ibutton_app",
     icon="A_iButton_14",
     stack_size=2 * 1024,
-    order=60,
+    order=456,
     fap_libs=["assets"],
     fap_icon="icon.png",
     fap_category="iButton",
@@ -18,5 +18,5 @@ App(
     targets=["f7"],
     entry_point="ibutton_on_system_start",
     sources=["ibutton_cli.c"],
-    order=60,
+    order=456,
 )

@@ -22,6 +22,10 @@
 #include <notification/notification_messages.h>
 #include <storage/storage.h>
 
+#include <math.h>
+#include <path.h>
+#include <furi/core/timer.h>
+
 #include <flipper_format/flipper_format_i.h>
 
 #define SUBREM_APP_FOLDER EXT_PATH("subghz_remote")
@@ -50,7 +54,7 @@ typedef struct {
 
     bool map_not_saved;
 
-    uint8_t chusen_sub;
+    uint8_t chosen_sub;
 } SubGhzRemoteApp;
 
 SubRemLoadMapState subrem_load_from_file(SubGhzRemoteApp* app);

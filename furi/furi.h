@@ -23,6 +23,8 @@
 
 // Workaround for math.h leaking through HAL in older versions
 #include <math.h>
+#include <timers.h>
+
 
 #ifdef __cplusplus
 extern "C" {

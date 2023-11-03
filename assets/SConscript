@@ -61,6 +61,7 @@ assetsenv.Install("${LIB_DIST_DIR}", assetslib)
 
 
 # Resources for SD card
+env.SetDefault(FW_RESOURCES=None)
 if assetsenv["IS_BASE_FIRMWARE"]:
     dolphin_external_out_dir = assetsenv["ASSETS_WORK_DIR"].Dir("dolphin")
     # External dolphin animations
@@ -75,5 +76,28 @@ if assetsenv["IS_BASE_FIRMWARE"]:
     assetsenv.Clean(dolphin_external, dolphin_external_out_dir)
 
     env.Replace(DOLPHIN_EXTERNAL_OUT_DIR=dolphin_external_out_dir)
+    # Resources manifest
+    resources = assetsenv.Command(
+        "#/assets/resources/Manifest",
+        assetsenv.GlobRecursive(
+            "*",
+            assetsenv.Dir("resources").srcnode(),
+            exclude=["Manifest"],
+        ),
+        action=Action(
+            '${PYTHON3} "${ASSETS_COMPILER}" manifest "${TARGET.dir.posix}" --timestamp=${GIT_UNIX_TIMESTAMP}',
+            "${RESMANIFESTCOMSTR}",
+        ),
+    )
+    assetsenv.Precious(resources)
+    assetsenv.AlwaysBuild(resources)
+    assetsenv.Clean(
+        resources,
+        assetsenv.Dir("#/assets/resources/apps"),
+    )
+
+    # Exporting resources node to external environment
+    env.Replace(FW_RESOURCES=resources)
+    assetsenv.Alias("resources", resources)
 
 Return("assetslib")

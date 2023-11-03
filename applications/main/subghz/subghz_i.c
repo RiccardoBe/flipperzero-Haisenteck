@@ -107,6 +107,7 @@ bool subghz_key_load(SubGhz* subghz, const char* file_path, bool show_dialog) {
         // TODO: use different frequency allowed lists for differnet modules (non cc1101)
         if(!furi_hal_subghz_is_tx_allowed(temp_data32)) {
             FURI_LOG_E(TAG, "This frequency can only be used for RX");
+
             load_key_state = SubGhzLoadKeyStateOnlyRx;
             break;
         }

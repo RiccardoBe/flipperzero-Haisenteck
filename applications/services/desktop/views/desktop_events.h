@@ -15,6 +15,11 @@ typedef enum {
     DesktopDummyEventOpenLeft,
     DesktopDummyEventOpenDown,
     DesktopDummyEventOpenOk,
+    DesktopDummyEventOpenUpLong,
+    DesktopDummyEventOpenDownLong,
+    DesktopDummyEventOpenLeftLong,
+    DesktopDummyEventOpenRightLong,
+    DesktopDummyEventOpenOkLong,
 
     DesktopLockedEventUnlocked,
     DesktopLockedEventUpdate,

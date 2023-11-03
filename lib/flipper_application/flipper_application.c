@@ -107,9 +107,9 @@ static FlipperApplicationPreloadStatus
     }
 
     if(!flipper_application_manifest_is_too_new(
-           &app->manifest, elf_file_get_api_interface(app->elf))) {
-        return FlipperApplicationPreloadStatusApiTooNew;
-    }
+        &app->manifest, elf_file_get_api_interface(app->elf))) {
+			return FlipperApplicationPreloadStatusApiTooNew;
+	}
 
     return FlipperApplicationPreloadStatusSuccess;
 }

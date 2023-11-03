@@ -55,8 +55,8 @@ PLACE_IN_SECTION("MB_MEM2") uint32_t __furi_check_registers[13] = {0};
                  : "memory");
 
 extern size_t xPortGetTotalHeapSize(void);
-extern size_t xPortGetFreeHeapSize(void);
-extern size_t xPortGetMinimumEverFreeHeapSize(void);
+										 
+													
 
 static void __furi_put_uint32_as_text(uint32_t data) {
     char tmp_str[] = "-2147483648";
@@ -153,6 +153,7 @@ FURI_NORETURN void __furi_crash_implementation() {
     __furi_print_heap_info();
     __furi_print_bt_stack_info();
 
+				  
     // Check if debug enabled by DAP
     // https://developer.arm.com/documentation/ddi0403/d/Debug-Architecture/ARMv7-M-Debug/Debug-register-support-in-the-SCS/Debug-Halting-Control-and-Status-Register--DHCSR?lang=en
     bool debug = CoreDebug->DHCSR & CoreDebug_DHCSR_C_DEBUGEN_Msk;

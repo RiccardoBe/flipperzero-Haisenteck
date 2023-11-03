@@ -69,6 +69,37 @@ static DialogMessageButton compliance_screen(DialogsApp* dialogs, DialogMessage*
     return result;
 }
 
+static DialogMessageButton Haisenteck_info_screen(DialogsApp* dialogs, DialogMessage* message) {
+    DialogMessageButton result;
+
+    const char* screen_header = "Haisenteck Firmware\n";
+
+    const char* screen_text = "Play with caution.\n"
+                              "Not for illegal use!";
+
+    dialog_message_set_header(message, screen_header, 0, 0, AlignLeft, AlignTop);
+    dialog_message_set_text(message, screen_text, 0, 26, AlignLeft, AlignTop);
+    result = dialog_message_show(dialogs, message);
+    dialog_message_set_header(message, NULL, 0, 0, AlignLeft, AlignTop);
+    dialog_message_set_text(message, NULL, 0, 0, AlignLeft, AlignTop);
+
+    return result;
+}
+
+static DialogMessageButton Haisenteck_info_screen2(DialogsApp* dialogs, DialogMessage* message) {
+    DialogMessageButton result;
+
+    const char* screen_text = "Custom plugins included\n"
+                              "For updates & info visit\n"
+                              "github.com/haisenteck/Haisenteck-Flipper-MOD";
+
+    dialog_message_set_text(message, screen_text, 0, 0, AlignLeft, AlignTop);
+    result = dialog_message_show(dialogs, message);
+    dialog_message_set_text(message, NULL, 0, 0, AlignLeft, AlignTop);
+
+    return result;
+}
+
 static DialogMessageButton icon1_screen(DialogsApp* dialogs, DialogMessage* message) {
     DialogMessageButton result;
 
@@ -100,13 +131,12 @@ static DialogMessageButton hw_version_screen(DialogsApp* dialogs, DialogMessage*
 
     furi_string_cat_printf(
         buffer,
-        "%d.F%dB%dC%d %s:%s %s\n",
+        "%d.F%dB%dC%d %s %s\n",
         furi_hal_version_get_hw_version(),
         furi_hal_version_get_hw_target(),
         furi_hal_version_get_hw_body(),
         furi_hal_version_get_hw_connect(),
-        furi_hal_version_get_hw_region_name(),
-        furi_hal_region_get_name(),
+        furi_hal_version_get_hw_region_name_otp(),
         my_name ? my_name : "Unknown");
 
     furi_string_cat_printf(buffer, "Serial Number:\n");
@@ -130,9 +160,9 @@ static DialogMessageButton fw_version_screen(DialogsApp* dialogs, DialogMessage*
     FuriString* buffer;
     buffer = furi_string_alloc();
     const Version* ver = furi_hal_version_get_firmware_version();
-    const BleGlueC2Info* c2_ver = NULL;
+    //const BleGlueC2Info* c2_ver = NULL;
 #ifdef SRV_BT
-    c2_ver = ble_glue_get_c2_info();
+    //c2_ver = ble_glue_get_c2_info();
 #endif
 
     if(!ver) { //-V1051
@@ -142,15 +172,16 @@ static DialogMessageButton fw_version_screen(DialogsApp* dialogs, DialogMessage*
         furi_hal_info_get_api_version(&api_major, &api_minor);
         furi_string_cat_printf(
             buffer,
-            "%s [%s]\n%s%s [%d.%d] %s\n[%d] %s",
+            "%s [%s]\n%s%s \n[Api:%d.%d] %s\n",
+			//"%s [%s]\n%s%s [%d.%d] %s\n[%d] %s",
             version_get_version(ver),
             version_get_builddate(ver),
             version_get_dirty_flag(ver) ? "[!] " : "",
             version_get_githash(ver),
             api_major,
             api_minor,
-            c2_ver ? c2_ver->StackTypeString : "<none>",
-            version_get_target(ver),
+            //c2_ver ? c2_ver->StackTypeString : "<none>",
+            //version_get_target(ver),
             version_get_gitbranch(ver));
     }
 
@@ -165,6 +196,8 @@ static DialogMessageButton fw_version_screen(DialogsApp* dialogs, DialogMessage*
 }
 
 const AboutDialogScreen about_screens[] = {
+    Haisenteck_info_screen,
+    Haisenteck_info_screen2,
     product_screen,
     compliance_screen,
     address_screen,
