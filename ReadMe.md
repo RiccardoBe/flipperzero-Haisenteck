@@ -70,7 +70,7 @@ sono un botto e cambiano spesso o aumentano... non pretendete che tenga aggiorna
 se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
 
 <ul>
-GPIO:
+<br>GPIO:<br>
     <li> Name: [BMI160] Air Mouse</li>
     <li> FAP Version: 0.8</li>
 --------------------------------------------------
@@ -222,7 +222,7 @@ GPIO:
     <li> Name: [GPIO] Wire Tester</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
-Games:
+<br>Games:<br>
     <li> Name: Arkanoid</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
@@ -329,7 +329,7 @@ Games:
     <li> Name: Zombiez</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
-Bluetooth:
+<br>Bluetooth:<br>
     <li> Name: Bad BT</li>
 --------------------------------------------------
     <li> Name: BLE Spam</li>
@@ -341,7 +341,7 @@ Bluetooth:
 --------------------------------------------------
     <li> Name: Bluetooth Remote</li>
 --------------------------------------------------
-Tools:
+<br>Tools:<br>
     <li> Name: Barcode App</li>
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
@@ -401,7 +401,7 @@ Tools:
     <li> Name: wolfssl</li>
     <li> FAP Version: 5.50</li>
 --------------------------------------------------
-Media:
+<br>Media:<br>
     <li> Name: BPM Tapper</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
@@ -447,7 +447,7 @@ Media:
     <li> Name: WAV Player</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
-Infrared:
+<br>Infrared:<br>
     <li> Name: XRemote</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
@@ -457,7 +457,7 @@ Infrared:
     <li> Name: IR Scope</li>
     <li> FAP Version: 1.2</li>
 --------------------------------------------------
-Sub-GHz:
+<br>Sub-GHz:<br>
     <li> Name: ShapShup</li>
 --------------------------------------------------
     <li> Name: Sub-GHz Bruteforcer</li>
@@ -482,15 +482,15 @@ Sub-GHz:
     <li> Name: Weather Station</li>
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
-RFID:
+<br>RFID:<br>
     <li> Name: RFID Beacon</li>
 --------------------------------------------------
     <li> Name: [YRM100] UHF RFID</li>
 --------------------------------------------------
-Misc:
+<br>Misc:<br>
     <li> Name: jClock settings</li>
 --------------------------------------------------
-NFC:
+<br>NFC:<br>
     <li> Name: Mfkey32</li>
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
@@ -500,15 +500,16 @@ NFC:
     <li> Name: loclass</li>
     <li> FAP Version: 1.7</li>
 --------------------------------------------------
-Electronics:
+<br>Electronics:<br>
     <li> Name: Resistance calculator",  # Displayed in menus</li>
     <li> FAP Version: (1, 1)</li>
 --------------------------------------------------
-USB:
+<br>USB:<br>
     <li> Name: USB HID Autofire</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
 </ul>
+
 
 
 <br>
