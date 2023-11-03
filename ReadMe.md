@@ -1,7 +1,7 @@
 </a>
 <h3>Haisenteck - Flipper zero firmware Mod</h3><br>
 Link all'installazione dell'ultima release tramite Web Updater: <a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/c2fbf9aa55299c51032e0a07e11adabde837c1e4/dist/release/flipper-z-f7-update-Haisenteck_V1.2.0.tgz&channel=Haisenteck_V1.2.0&version=V1.2.0' target='_blank'>WEB UPDATER - RELEASE</a><br>
-link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.1.9' target='_blank'>Versione STABILE</a><br>
+link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.0' target='_blank'>Versione STABILE</a><br>
 Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.0.tgz' target='_blank'>Versione DEV Build</a><br>
 Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/Flipper_MicroSD' target='_blank'>Contenuti Extra per Micro SD</a><br>
 <br>
@@ -12,6 +12,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 </ul>
 - **BLUETOOTH**<br>
 <ul>
+	<li> Ble Spam FAP attiva</li>
 	<del><li>modifica a libreria di base per inclusione di diverse modalità del bluetooth notification per presentare il flipper come dispositivo Apple.</li></del>
 	<del><li>creato app per la gestione, si chiama FRUTTIVENDOLO.<br></li></del>
 		<del><ul><li>aprire l'app FRUTTIVENDOLO dalla sezione bluetooth delle app.</li></del>
@@ -21,11 +22,12 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 </ul>
 - **NFC**<br>
 <ul>	
-	<li>aggiunto riconoscimento corretto per le carte<ul>
- 		<li>MIFARE Classic 4k - emulated (6131 NFC)</li>
-		<li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li>
-	<li>Aggiunto dizionari mifare e non</li>
- 	<li>aggiunto codici riconoscimento carte</li>
+	<li> NFC REFACTOR
+	<del><li>aggiunto riconoscimento corretto per le carte<ul></del>
+ 		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></del>
+		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li></del>
+	<del><li>Aggiunto dizionari mifare e non</li></del>
+ 	<del><li>aggiunto codici riconoscimento carte</li></del>
 </ul>
 - **Sub-GHz**<br>
 <ul>
@@ -66,152 +68,452 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 	<li>variazione di svariati parametri per ridurre i tempi morti tra i comandi e la frequenza di base del flipper (a discapito di un consumo leggermente superiore di batteria</li>
 </ul>
 
-- **APP**<br>
+- **FAP**<br>
+sono un botto e cambiano spesso o aumentano... non pretendete che tenga aggiornato l'elenco ogni volta... se volete certezze guardate il sorgente o provate nel firmware.<br>
+se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
+
 <ul>
-
-<li>[BMI160] Air Mouse</li>
-<li>Apple BLE Spam</li>
-<li>continuity</li>
-<li>Arkanoid</li>
-<li>AVR Flasher</li>
-<li>driver</li>
-<li>Bad BT</li>
-<li>Barcode App</li>
-<li>BarCode ScannerE</li>
-<li>Blackjack</li>
-<li>Bomberduck</li>
-<li>Brutefoce</li>
-<li>BT Serial App</li>
-<li>Calendar</li>
-<li>[ESP32] Camera Suite</li>
-<li>Chess</li>
-<li>Chess Clock</li>
-<li>CLI-GUI Bridge</li>
-<li>DOOM</li>
-<li>DTMF Dolphin</li>
-<li>DVD Bouncer</li>
-<li>[ESP32] Gravity</li>
-<li>[ESP8266] Deauther</li>
-<li>Enhanced Sub-Ghz Chat</li>
-<li>Etch A Sketch</li>
-<li>Flappy Bird</li>
-<li>Flipagotchi</li>
-<li>FlipBIP Crypto Wallet</li>
-<li>crypto</li>
-<li>Nightstand Clock</li>
-<li>Scope</li>
-<li>[ESP32] Camera</li>
-<li>ESP Flasher</li>
-<li>esp-serial-flasher</li>
-<li>QR Code</li>
-<li>[GPIO] Input Reader 2</li>
-<li>VB Migration Assistant</li>
-<li>Atomic Dice Roller</li>
-<li>Chronometer</li>
-<li>[ESP32] Evil Portal</li>
-<li>[GPIO] i2c Tools</li>
-<li>Radiation Sensor</li>
-<li>RFID Beacon</li>
-<li>Flizzer Tracker</li>
-<li>FRUTTIVENDOLO</li>
-<li>Game 15</li>
-<li>2048</li>
-<li>Pokemon Trading</li>
-<li>GPIO Controller</li>
-<li>[NMEA] GPS</li>
-<li>[HC-SR] Dist. Sensor</li>
-<li>Heap Defence</li>
-<li>HEX Viewer</li>
-<li>USB Keyboard & Mouse</li>
-<li>Bluetooth Remote</li>
-<li>[ESP] IFTTT Button</li>
-<li>IR Remote</li>
-<li>IR Scope</li>
-<li>Jetpack Joyride</li>
-<li>[BH1750] Lightmeter</li>
-<li>BH1750</li>
-<li>Logic Analyzer</li>
-<li>LoRA_Terminal</li>
-<li>MagSpoof</li>
-<li>Mass Storage</li>
-<li>[Mx2125] Accelerometer</li>
-<li>Metronome</li>
-<li>Mfkey32</li>
-<li>[MH-Z19] CO2 sensor</li>
-<li>Mifare Nested</li>
-<li>nested</li>
-<li>parity</li>
-<li>crypto1</li>
-<li>Minesweeper</li>
-<li>Morse Code</li>
-<li>[NRF24] Mouse Jacker</li>
-<li>nrf24</li>
-<li>Multi Converter</li>
-<li>Multi Counter</li>
-<li>Music Beeper</li>
-<li>Music Player</li>
-<li>NFC Magic</li>
-<li>magic</li>
-<li>NFC Maker</li>
-<li>NFC/RFID detector</li>
-<li>[NRF24] Batch</li>
-<li>nrf24</li>
-<li>[NRF24] Scanner</li>
-<li>nrf24</li>
-<li>[NRF24] Sniffer</li>
-<li>nrf24</li>
-<li>[iClass] PicoPass</li>
-<li>loclass</li>
-<li>Sub-GHz Playlist</li>
-<li>POCSAG Pager</li>
-<li>ProtoView</li>
-<li>RC2014 ColecoVision</li>
-<li>[RCWL-0516] Motion Sensor</li>
-<li>Subghz Rolling Flaws</li>
-<li>SUPER-CHIP</li>
-<li>Seader</li>
-<li>asn1</li>
-<li>Secret Toggle</li>
-<li>[GPIO] Sentry Safe</li>
-<li>Servo Tester 2</li>
-<li>Shapshup</li>
-<li>Signal Generator</li>
-<li>Simon Says</li>
-<li>Snake Game</li>
-<li>Solitaire</li>
-<li>Spectrum Analyzer</li>
-<li>SPI Mem Manager</li>
-<li>spi</li>
-<li>Sudoku</li>
-<li>SWD Probe</li>
-<li>TAMA P1</li>
-<li>Tanks</li>
-<li>TAS playback</li>
-<li>Tetris</li>
-<li>Text Viewer</li>
-<li>Tic Tac Toe</li>
-<li>TPMS Reader</li>
-<li>UART Terminal</li>
-<li>u-blox GPS</li>
-<li>[YRM100] UHF RFID</li>
-<li>Temp sensors reader</li>
-<li>USB HID Autofire</li>
-<li>USB Midi</li>
-<li>[USPING] Dist. Sensor</li>
-<li>Video Player</li>
-<li>WAV Player</li>
-<li>Weather Station</li>
-<li>Wiegand Reader</li>
-<li>WIFI Mapping</li>
-<li>[ESP8266] Deauther v2</li>
-<li>[ESP32] WiFi Marauder</li>
-<li>[WiFi] Scanner</li>
-<li>Wii EC Analyser</li>
-<li>[GPIO] Wire Tester</li>
-<li>Zombiez</li>
-
-
+GPIO:
+    <li> Name: [BMI160] Air Mouse</li>
+    <li> FAP Version: 0.8</li>
+--------------------------------------------------
+    <li> Name: driver</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: BarCode ScannerE</li>
+    <li> FAP Version: (0, 5)</li>
+--------------------------------------------------
+    <li> Name: [ESP32] Camera Suite</li>
+    <li> FAP Version: 1.3</li>
+--------------------------------------------------
+    <li> Name: Coffee EEPROM</li>
+--------------------------------------------------
+    <li> Name: free-dap</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: [MAYHEM] Camera</li>
+--------------------------------------------------
+    <li> Name: [MAYHEM] Motion detection</li>
+--------------------------------------------------
+    <li> Name: [MAYHEM] Nanny Cam</li>
+--------------------------------------------------
+    <li> Name: [MAYHEM] QR Code</li>
+--------------------------------------------------
+    <li> Name: [ESP32] Gravity</li>
+    <li> FAP Version: 0.2.1</li>
+--------------------------------------------------
+    <li> Name: [LED] Flashlight</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Flipagotchi</li>
+--------------------------------------------------
+    <li> Name: Scope</li>
+    <li> FAP Version: 0.2</li>
+--------------------------------------------------
+    <li> Name: [ESP32] Camera</li>
+--------------------------------------------------
+    <li> Name: esp-serial-flasher</li>
+    <li> FAP Version: (1,1)</li>
+--------------------------------------------------
+    <li> Name: [GPIO] Input Reader 2</li>
+--------------------------------------------------
+    <li> Name: Atomic Dice Roller</li>
+--------------------------------------------------
+    <li> Name: [ESP32] Evil Portal</li>
+--------------------------------------------------
+    <li> Name: [GPIO] i2c Tools</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Radiation Sensor</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Pokemon Trading</li>
+    <li> FAP Version: [1, 2]</li>
+--------------------------------------------------
+    <li> Name: [J305] Geiger Counter</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: [GPIO] Reader (aureli1c)</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: GPIO Controller</li>
+--------------------------------------------------
+    <li> Name: [NMEA] GPS</li>
+    <li> FAP Version: 1.2</li>
+--------------------------------------------------
+    <li> Name: [HC-SR] Dist. Sensor</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: [ESP] IFTTT Button</li>
+--------------------------------------------------
+    <li> Name: BH1750</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Logic Analyzer</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: LoRA_Terminal</li>
+--------------------------------------------------
+    <li> Name: [Mx2125] Accelerometer</li>
+--------------------------------------------------
+    <li> Name: [MH-Z19] CO2 sensor</li>
+--------------------------------------------------
+    <li> Name: nrf24</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: nrf24</li>
+--------------------------------------------------
+    <li> Name: nrf24</li>
+--------------------------------------------------
+    <li> Name: nrf24</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: [RCWL0516] Radar Scan</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: RC2014 ColecoVision</li>
+--------------------------------------------------
+    <li> Name: [RCWL-0516] Motion Sensor</li>
+--------------------------------------------------
+    <li> Name: [GPIO] Sentry Safe</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Servo Tester 2</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Signal Generator</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: spi</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: SWD Probe</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: TAS playback",  # Displayed in menus</li>
+    <li> FAP Version: (0, 1),  # (major, minor)</li>
+--------------------------------------------------
+    <li> Name: [GPIO] Timelapse</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: UART Terminal</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: u-blox GPS</li>
+    <li> FAP Version: (0, 1), # major, minor</li>
+--------------------------------------------------
+    <li> Name: Temp sensors reader</li>
+    <li> FAP Version: 1.4</li>
+--------------------------------------------------
+    <li> Name: [USPING] Dist. Sensor</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Wiegand Reader</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: WIFI Mapping</li>
+--------------------------------------------------
+    <li> Name: [ESP32] WiFi Marauder</li>
+    <li> FAP Version: (6,4)</li>
+--------------------------------------------------
+    <li> Name: [WiFi] Scanner</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: [WII] EC Analyser</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: [GPIO] Wire Tester</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+Games:
+    <li> Name: Arkanoid</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Asteroids</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Blackjack</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Bomberduck</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Chess</li>
+    <li> FAP Version: (1, 9)</li>
+--------------------------------------------------
+    <li> Name: Chess Clock</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: DOOM</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: DVD Bouncer</li>
+--------------------------------------------------
+    <li> Name: Etch A Sketch</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Flappy Bird</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Game 15</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: 2048</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Game of Life</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Heap Defence</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Jetpack Joyride</li>
+--------------------------------------------------
+    <li> Name: Minesweeper</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Multi-Dice</li>
+--------------------------------------------------
+    <li> Name: Pong</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Reversi</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Roots of Life</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Rubik's Cube Scrambler</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: SUPER-CHIP</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Scorched Tanks</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Secret Toggle",  # Displayed in menus</li>
+--------------------------------------------------
+    <li> Name: Simon Says",  # Displayed in UI</li>
+--------------------------------------------------
+    <li> Name: Slot Machine</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Snake 2.0</li>
+    <li> FAP Version: 2.0</li>
+--------------------------------------------------
+    <li> Name: Snake Game</li>
+--------------------------------------------------
+    <li> Name: Solitaire</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Sudoku</li>
+    <li> FAP Version: 0.1</li>
+--------------------------------------------------
+    <li> Name: TAMA P1</li>
+--------------------------------------------------
+    <li> Name: Tanks</li>
+--------------------------------------------------
+    <li> Name: Tetris</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Tic Tac Toe</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: T-Rex runner</li>
+    <li> FAP Version: 1.2</li>
+--------------------------------------------------
+    <li> Name: Video Poker</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Yatzee</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Zombiez</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+Bluetooth:
+    <li> Name: Bad BT</li>
+--------------------------------------------------
+    <li> Name: BLE Spam</li>
+    <li> FAP Version: 4.1</li>
+--------------------------------------------------
+    <li> Name: BT Serial App</li>
+--------------------------------------------------
+    <li> Name: FRUTTIVENDOLO</li>
+--------------------------------------------------
+    <li> Name: Bluetooth Remote</li>
+--------------------------------------------------
+Tools:
+    <li> Name: Barcode App</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Brainfuck</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Caesar Cipher</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Calculator</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Calendar</li>
+--------------------------------------------------
+    <li> Name: CLI-GUI Bridge</li>
+--------------------------------------------------
+    <li> Name: Count Down Timer</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Counter</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: DTMF Dolphin</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: crypto</li>
+    <li> FAP Version: (1, 13)</li>
+--------------------------------------------------
+    <li> Name: Nightstand Clock</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: QR Code</li>
+    <li> FAP Version: (1, 1)</li>
+--------------------------------------------------
+    <li> Name: Chronometer</li>
+--------------------------------------------------
+    <li> Name: HEX Viewer</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Multi Converter</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Multi Counter</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: RFID detector</li>
+    <li> FAP Version: 1.2</li>
+--------------------------------------------------
+    <li> Name: Orgasmotron</li>
+--------------------------------------------------
+    <li> Name: Password Generator</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Text Viewer</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: wolfssl</li>
+    <li> FAP Version: 5.50</li>
+--------------------------------------------------
+Media:
+    <li> Name: BPM Tapper</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Flizzer Tracker</li>
+    <li> FAP Version: (0, 2)</li>
+--------------------------------------------------
+    <li> Name: Mandelbrot Set</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Metronome</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Morse Code</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Music Beeper</li>
+--------------------------------------------------
+    <li> Name: Music Player</li>
+--------------------------------------------------
+    <li> Name: Zero Tracker</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Ocarina</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Paint</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: SAM WTF</li>
+--------------------------------------------------
+    <li> Name: Text to SAM</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Tuning Fork</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: USB Midi</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Video Player</li>
+    <li> FAP Version: (0, 1)</li>
+--------------------------------------------------
+    <li> Name: WAV Player</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+Infrared:
+    <li> Name: XRemote</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: IR Remote</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: IR Scope</li>
+    <li> FAP Version: 1.2</li>
+--------------------------------------------------
+Sub-GHz:
+    <li> Name: ShapShup</li>
+--------------------------------------------------
+    <li> Name: Sub-GHz Bruteforcer</li>
+--------------------------------------------------
+    <li> Name: Sub-GHz Playlist</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: POCSAG Pager</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: ProtoView</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Subghz Rolling Flaws</li>
+    <li> FAP Version: (1, 4)</li>
+--------------------------------------------------
+    <li> Name: Spectrum Analyzer</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: TPMS Reader</li>
+--------------------------------------------------
+    <li> Name: Weather Station</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+RFID:
+    <li> Name: RFID Beacon</li>
+--------------------------------------------------
+    <li> Name: [YRM100] UHF RFID</li>
+--------------------------------------------------
+Misc:
+    <li> Name: jClock settings</li>
+--------------------------------------------------
+NFC:
+    <li> Name: Mfkey32</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: magic</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: loclass</li>
+    <li> FAP Version: 1.7</li>
+--------------------------------------------------
+Electronics:
+    <li> Name: Resistance calculator",  # Displayed in menus</li>
+    <li> FAP Version: (1, 1)</li>
+--------------------------------------------------
+USB:
+    <li> Name: USB HID Autofire</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
 </ul>
+
+
 <br>
 <br>
 #### **This firmware is a fork from** [FLIPPER ZERO OFFICIAL FIRMWARE](https://github.com/flipperdevices/flipperzero-firmware) <br>

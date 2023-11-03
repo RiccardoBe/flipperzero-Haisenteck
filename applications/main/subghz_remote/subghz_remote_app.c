@@ -33,7 +33,10 @@
 #include <lib/subghz/registry.h>
 #include <lib/subghz/devices/devices.h>
 
-
+#include <lib/subghz/protocols/raw.h>
+#include <lib/subghz/protocols/protocol_items.h>
+#include <flipper_format/flipper_format_i.h>
+#include <dialogs/dialogs.h>
 
 static bool subghz_remote_app_custom_event_callback(void* context, uint32_t event) {
     furi_assert(context);

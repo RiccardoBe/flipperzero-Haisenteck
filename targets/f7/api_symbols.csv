@@ -1994,7 +1994,7 @@ Function,-,isupper,int,int
 Function,-,isupper_l,int,"int, locale_t"
 Function,-,isxdigit,int,int
 Function,-,isxdigit_l,int,"int, locale_t"
-Function,-,itoa,char*,"int, char*, int"
+Function,+,itoa,char*,"int, char*, int"
 Function,-,j0,double,double
 Function,-,j0f,float,float
 Function,-,j1,double,double
@@ -2731,7 +2731,7 @@ Function,-,stpncpy,char*,"char*, const char*, size_t"
 Function,-,strcasecmp,int,"const char*, const char*"
 Function,-,strcasecmp_l,int,"const char*, const char*, locale_t"
 Function,+,strcasestr,char*,"const char*, const char*"
-Function,-,strcat,char*,"char*, const char*"
+Function,+,strcat,char*,"char*, const char*"
 Function,+,strchr,char*,"const char*, int"
 Function,-,strchrnul,char*,"const char*, int"
 Function,+,strcmp,int,"const char*, const char*"
@@ -2805,7 +2805,7 @@ Function,-,strtod,double,"const char*, char**"
 Function,-,strtod_l,double,"const char*, char**, locale_t"
 Function,+,strtof,float,"const char*, char**"
 Function,-,strtof_l,float,"const char*, char**, locale_t"
-Function,-,strtok,char*,"char*, const char*"
+Function,+,strtok,char*,"char*, const char*"
 Function,-,strtok_r,char*,"char*, const char*, char**"
 Function,+,strtol,long,"const char*, char**, int"
 Function,-,strtol_l,long,"const char*, char**, int, locale_t"
@@ -3036,7 +3036,7 @@ Function,+,text_input_get_validator_callback_context,void*,TextInput*
 Function,+,text_input_get_view,View*,TextInput*
 Function,+,text_input_reset,void,TextInput*
 Function,+,text_input_set_header_text,void,"TextInput*, const char*"
-Function,-,text_input_set_minimum_length,void,"TextInput*, size_t"
+Function,+,text_input_set_minimum_length,void,"TextInput*, size_t"
 Function,+,text_input_set_result_callback,void,"TextInput*, TextInputCallback, void*, char*, size_t, _Bool"
 Function,+,text_input_set_validator,void,"TextInput*, TextInputValidatorCallback, void*"
 Function,-,tgamma,double,double
