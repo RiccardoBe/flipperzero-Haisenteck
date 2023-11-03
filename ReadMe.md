@@ -14,10 +14,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 <ul>
 	<li> Ble Spam FAP attiva</li>
 	<del><li>modifica a libreria di base per inclusione di diverse modalità del bluetooth notification per presentare il flipper come dispositivo Apple.</li></del>
-	<del><li>creato app per la gestione, si chiama FRUTTIVENDOLO.<br></li></del>
-		<del><ul><li>aprire l'app FRUTTIVENDOLO dalla sezione bluetooth delle app.</li></del>
-		<del><li>selezionare la modalità voluta come da indicazioni a schermo</li></del>
-		<del><li>andare nelle impostazioni bluetooth e avviare/riavviare il bluetooth per rendere effettive le modifiche. risolto, ora si riavvia alla selezione della versione</li></ul></del>
+	<del><li>creato app per la gestione, si chiama FRUTTIVENDOLO.<br></del> App rimossa in quanto non più necessaria.</li>
 	
 </ul>
 - **NFC**<br>
