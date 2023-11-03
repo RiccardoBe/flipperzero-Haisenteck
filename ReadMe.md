@@ -55,7 +55,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 		<li>Weather - Baldr Rain (supporto protocolo per Nexus) ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
 		<li>SUBGHZ - X10					-	lettura OK - salvataggio OK - invio   </li>
 		<li>SUBGHZ - POCSAG					-	lettura OK - salvataggio    - invio   </li>
-		<li>SUBGHZ - YALE HSA				-	lettura OK - salvataggio    - invio   </li>
+		<li>SUBGHZ - YALE HSA (supporto protocolo per Nexus) ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
 		<li>TPMS - Schrader GG4				-	lettura OK - salvataggio    - invio   </li>
 		</ul></li>
 </ul>
