@@ -24,7 +24,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
  		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></del>
 		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li></del>
 	<li>ripristinato i dizionari mifare e non creati con Stepzor</li>
- 	<del><li>aggiunto codici riconoscimento carte EMV</li></del>
+ 	<li>aggiunto codici riconoscimento carte EMV</li>
 </ul>
 - **Sub-GHz**<br>
 <ul>
