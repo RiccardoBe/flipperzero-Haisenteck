@@ -323,8 +323,6 @@ const SubGhzProtocol subghz_protocol_oregon2 = {
     .encoder = &subghz_protocol_oregon2_encoder,
 };
 
-
-
 const SubGhzProtocolEncoder subghz_protocol_oregon2_encoder = {
     .alloc = subghz_protocol_encoder_oregon2_alloc,
     .free = subghz_protocol_encoder_oregon2_free,

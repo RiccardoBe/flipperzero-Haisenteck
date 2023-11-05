@@ -29,6 +29,7 @@ static const uint32_t subghz_frequency_list[] = {
     418000000,
     433075000, /* LPD433 first */
     433420000,
+	433650000,
     433920000 | FREQUENCY_FLAG_DEFAULT, /* LPD433 mid */
     434420000,
     434775000, /* LPD433 last channels */
@@ -46,6 +47,7 @@ static const uint32_t subghz_hopper_frequency_list[] = {
     315000000,
     318000000,
     390000000,
+	433650000,
     433920000,
     868350000,
     0,
@@ -66,6 +68,7 @@ static const uint32_t subghz_frequency_list_region_eu_ru[] = {
     418000000,
     433075000, /* LPD433 first */
     433420000,
+    433650000,
     433920000 | FREQUENCY_FLAG_DEFAULT, /* LPD433 mid */
     434420000,
     434775000, /* LPD433 last channels */
@@ -102,6 +105,7 @@ static const uint32_t subghz_frequency_list_region_us_ca_au[] = {
     418000000,
     433075000, /* LPD433 first */
     433420000,
+    433650000,
     433920000 | FREQUENCY_FLAG_DEFAULT, /* LPD433 mid */
     434420000,
     434775000, /* LPD433 last channels */
@@ -118,6 +122,7 @@ static const uint32_t subghz_hopper_frequency_list_region_us_ca_au[] = {
     315000000,
     318000000,
     390000000,
+    433650000,
     433920000,
     868350000,
     0,
@@ -137,6 +142,7 @@ static const uint32_t subghz_frequency_list_region_jp[] = {
     418000000,
     433075000, /* LPD433 first */
     433420000,
+    433650000,
     433920000 | FREQUENCY_FLAG_DEFAULT, /* LPD433 mid */
     434420000,
     434775000, /* LPD433 last channels */
@@ -153,6 +159,7 @@ static const uint32_t subghz_hopper_frequency_list_region_jp[] = {
     315000000,
     318000000,
     390000000,
+    433650000,
     433920000,
     868350000,
     0,
