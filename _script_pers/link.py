@@ -8,7 +8,7 @@ with open("D:\\xxx_flipper_code\\firmware\\flipperzero-Haisenteck\\versione.txt"
 testo_completo += versione
 testo_completo += "&version="
 testo_completo += versione
-testo_completo += " ' target='_blank'>WEB UPDATER - RELEASE</a><br>"
+testo_completo += "' target='_blank'>WEB UPDATER - RELEASE</a><br>"
 with open("1_Link.txt", "w") as f:
     f.write(testo_completo)
     f.write("\n")

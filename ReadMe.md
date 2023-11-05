@@ -1,23 +1,21 @@
 </a>
 <h3>Haisenteck - Flipper zero firmware Mod</h3><br>
-Link all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/bff056cfb4c339a065f95c8f25fec76cf2dd67d8/dist/release/flipper-z-f7-update-Haisenteck_V1.2.1.tgz&channel=Haisenteck_V1.2.1&version=V1.2.1' target='_blank'>WEB UPDATER - RELEASE</a><br>
-link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.1' target='_blank'>Versione STABILE</a><br>
-Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.1.tgz' target='_blank'>Versione DEV Build</a><br>
+Link all'installazione dell'ultima release tramite Web Updater:<a href='https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/55cb7247e3bbc3b97866a32e6b157ebf94e77dd6/dist/release/flipper-z-f7-update-Haisenteck_V1.2.2.tgz&channel=Haisenteck_V1.2.2&version=V1.2.2' target='_blank'>WEB UPDATER - RELEASE</a><br>
+link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.2' target='_blank'>Versione STABILE</a><br>
+Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.2.tgz' target='_blank'>Versione DEV Build</a><br>
 Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/Flipper_MicroSD' target='_blank'>Contenuti Extra per Micro SD</a><br>
 <br>
-# Novità<br>
+# Novit�<br>
 - **FreeRTOS**<br>
 <ul>
 	<li>Upgrade da versione V10.5.1 a V10.6.0</li>
-</ul>
-- **BLUETOOTH**<br>
+</ul>- **BLUETOOTH**<br>
 <ul>
 	<li> Ble Spam FAP attiva</li>
 	<del><li>modifica a libreria di base per inclusione di diverse modalità del bluetooth notification per presentare il flipper come dispositivo Apple.</li></del>
 	<del><li>creato app per la gestione, si chiama FRUTTIVENDOLO.<br></del> App rimossa in quanto non più necessaria.</li>
 	
-</ul>
-- **NFC**<br>
+</ul>- **NFC**<br>
 <ul>	
 	<li> NFC REFACTOR
 	<del><li>aggiunto riconoscimento corretto per le carte<ul></del>
@@ -25,8 +23,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li></del>
 	<li>ripristinato i dizionari mifare e non creati con Stepzor</li>
  	<li>aggiunto codici riconoscimento carte EMV</li>
-</ul>
-- **Sub-GHz**<br>
+</ul>- **Sub-GHz**<br>
 <ul>
 	<li>SubGHz: Aggiunto AM_Q ai preset di utilizzo</li>
 	<li>SubGhz: Aggiunto TPMS ai preset di utilizzo</li>
@@ -55,21 +52,14 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 		<li>Weather - Baldr Rain (supporto protocolo per Nexus) ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
 		<li>SUBGHZ - X10					-	lettura OK - salvataggio OK - invio   </li>
 		<li>SUBGHZ - POCSAG					-	lettura OK - salvataggio    - invio   </li>
-		<li>SUBGHZ - YALE HSA  (supporto protocolo per Nexus) ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
+		<li>SUBGHZ - YALE HSA ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
 		<li>TPMS - Schrader GG4				-	lettura OK - salvataggio    - invio   </li>
 		</ul></li>
-</ul>
-- **VARIE**<br>
+</ul>- **VARIE**<br>
 <ul>
 	<li>rimosso svariate problematiche relative a submoduli di github bloccati.</li>
 	<li>variazione di svariati parametri per ridurre i tempi morti tra i comandi e la frequenza di base del flipper (a discapito di un consumo leggermente superiore di batteria</li>
-</ul>
-
-- **FAP**<br>
-sono un botto e cambiano spesso o aumentano... non pretendete che tenga aggiornato l'elenco ogni volta... se volete certezze guardate il sorgente o provate nel firmware.<br>
-se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
-
-<ul>
+</ul>- **FAP**<br><ul>
 <br>GPIO:<br>
     <li> Name: [BMI160] Air Mouse</li>
     <li> FAP Version: 0.8</li>
@@ -132,6 +122,9 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
 --------------------------------------------------
     <li> Name: [GPIO] Reader (aureli1c)</li>
     <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: 7-Segment Output</li>
+    <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: GPIO Controller</li>
 --------------------------------------------------
@@ -269,9 +262,18 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
     <li> Name: Minesweeper</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
+    <li> Name: Monty Hall</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
     <li> Name: Multi-Dice</li>
 --------------------------------------------------
+    <li> Name: Nu pogodi</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
     <li> Name: Pong</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: Race</li>
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: Reversi</li>
@@ -326,6 +328,9 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
     <li> Name: Yatzee</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
+    <li> Name: ZERO!</li>
+    <li> FAP Version: 1.3</li>
+--------------------------------------------------
     <li> Name: Zombiez</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
@@ -336,8 +341,6 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
     <li> FAP Version: 4.1</li>
 --------------------------------------------------
     <li> Name: BT Serial App</li>
---------------------------------------------------
-    <li> Name: FRUTTIVENDOLO</li>
 --------------------------------------------------
     <li> Name: Bluetooth Remote</li>
 --------------------------------------------------
@@ -448,6 +451,9 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
 <br>Infrared:<br>
+    <li> Name: Xbox Controller</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
     <li> Name: XRemote</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
@@ -456,6 +462,13 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
 --------------------------------------------------
     <li> Name: IR Scope</li>
     <li> FAP Version: 1.2</li>
+--------------------------------------------------
+<br>Misc:<br>
+    <li> Name: Airmon</li>
+--------------------------------------------------
+    <li> Name: Bad Apple</li>
+--------------------------------------------------
+    <li> Name: jClock settings</li>
 --------------------------------------------------
 <br>Sub-GHz:<br>
     <li> Name: ShapShup</li>
@@ -487,9 +500,6 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
 --------------------------------------------------
     <li> Name: [YRM100] UHF RFID</li>
 --------------------------------------------------
-<br>Misc:<br>
-    <li> Name: jClock settings</li>
---------------------------------------------------
 <br>NFC:<br>
     <li> Name: Mfkey32</li>
     <li> FAP Version: 1.1</li>
@@ -509,9 +519,6 @@ se volete una fap aggiornata, scrivetemi e cercherò l'aggiornamento.<br>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
 </ul>
-
-
-
 <br>
 <br>
 #### **This firmware is a fork from** [FLIPPER ZERO OFFICIAL FIRMWARE](https://github.com/flipperdevices/flipperzero-firmware) <br>
