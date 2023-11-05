@@ -1,16 +1,7 @@
 /* Abandon hope, all ye who enter here. */
 
 #include <furi/core/log.h>
-#include <furi/core/timer.h>
-#include <targets/f7/furi_hal/furi_hal_debug.c>
-#include <targets/f7/furi_hal/furi_hal_subghz.h>
-#include <targets/f7/furi_hal/furi_hal_subghz_i.h>
 
-#include <applications/services/gui/gui.h>
-#include <applications/services/cli/cli.h>
-#include <applications/services/dialogs/dialogs.h>
-#include <applications/services/storage/storage.h>
-#include <gui/modules/variable_item_list.h>
 #include <subghz/types.h>
 #include <lib/toolbox/path.h>
 #include <float_tools.h>
