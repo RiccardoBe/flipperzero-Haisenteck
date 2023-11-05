@@ -1,0 +1,9 @@
+- **NFC**<br>
+<ul>	
+	<li> NFC REFACTOR
+	<del><li>aggiunto riconoscimento corretto per le carte<ul></del>
+ 		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></del>
+		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li></del>
+	<li>ripristinato i dizionari mifare e non creati con Stepzor</li>
+ 	<li>aggiunto codici riconoscimento carte EMV</li>
+</ul>
