@@ -1,5 +1,5 @@
 import os
-testo_iniziale = "</a>\n<h3>Haisenteck - Flipper zero firmware Mod</h3><br>\nLink all'installazione dell'ultima release tramite Web Updater:<a href='"
+testo_iniziale = "</a>\n<h3>Haisenteck - Flipper zero firmware Mod</h3><br>\nLink all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url="
 link_produzione = input("Inserisci il link di produzione da https://raw.githack.com/:\n")
 testo_completo = testo_iniziale + link_produzione
 testo_completo += "&channel=Haisenteck_"
