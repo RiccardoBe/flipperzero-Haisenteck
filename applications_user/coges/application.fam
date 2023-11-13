@@ -1,0 +1,17 @@
+App(
+    appid="coges",
+    name="Coges",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="coges_app",
+    cdefines=["coges"],
+    requires=[
+        "gui",
+    ],
+    stack_size=2 * 1024,
+    order=20,
+	fap_author="Haisenteck",
+	fap_version="1.0",
+	fap_category="Coffee",
+	fap_description="Lettura NFC Coges",
+	fap_icon="coges.png",
+)

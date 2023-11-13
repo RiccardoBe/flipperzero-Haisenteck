@@ -1,5 +1,5 @@
 /*
- * FreeRTOS Kernel V10.6.0
+ * FreeRTOS Kernel V10.6.1
  * Copyright (C) 2021 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * SPDX-License-Identifier: MIT
@@ -79,8 +79,8 @@
         #define xTaskGetSchedulerState                MPU_xTaskGetSchedulerState
 
         #if ( configUSE_MPU_WRAPPERS_V1 == 0 )
-			#define ulTaskGetRunTimeCounter           MPU_ulTaskGetRunTimeCounter
-			#define ulTaskGetRunTimePercent           MPU_ulTaskGetRunTimePercent
+            #define ulTaskGetRunTimeCounter           MPU_ulTaskGetRunTimeCounter
+            #define ulTaskGetRunTimePercent           MPU_ulTaskGetRunTimePercent
         #endif /* #if ( configUSE_MPU_WRAPPERS_V1 == 0 ) */
 
 /* Privileged only wrappers for Task APIs. These are needed so that

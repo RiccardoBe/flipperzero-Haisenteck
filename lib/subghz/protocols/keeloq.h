@@ -24,7 +24,6 @@ void* subghz_protocol_encoder_keeloq_alloc(SubGhzEnvironment* environment);
  */
 void subghz_protocol_encoder_keeloq_free(void* context);
 
-
 /**
  * Key generation from simple data.
  * @param context Pointer to a SubGhzProtocolEncoderKeeloq instance
@@ -36,7 +35,6 @@ void subghz_protocol_encoder_keeloq_free(void* context);
  * @param preset Modulation, SubGhzRadioPreset
  * @return true On success
  */
-
 bool subghz_protocol_keeloq_create_data(
     void* context,
     FlipperFormat* flipper_format,
@@ -58,7 +56,6 @@ bool subghz_protocol_keeloq_create_data(
  * @param preset Modulation, SubGhzRadioPreset
  * @return true On success
  */
-
 bool subghz_protocol_keeloq_bft_create_data(
     void* context,
     FlipperFormat* flipper_format,
@@ -68,7 +65,6 @@ bool subghz_protocol_keeloq_bft_create_data(
     uint32_t seed,
     const char* manufacture_name,
     SubGhzRadioPreset* preset);
-
 
 /**
  * Deserialize and generating an upload to send.

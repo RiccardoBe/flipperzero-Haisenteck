@@ -1,5 +1,5 @@
 /*
- * FreeRTOS Kernel V10.6.0
+ * FreeRTOS Kernel V10.6.1
  * Copyright (C) 2021 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
  *
  * SPDX-License-Identifier: MIT
@@ -2197,6 +2197,12 @@ void vQueueDelete( QueueHandle_t xQueue )
 UBaseType_t uxQueueGetQueueItemSize( QueueHandle_t xQueue ) /* PRIVILEGED_FUNCTION */
 {
     return ( ( Queue_t * ) xQueue )->uxItemSize;
+}
+/*-----------------------------------------------------------*/
+
+UBaseType_t uxQueueGetQueueLength( QueueHandle_t xQueue ) /* PRIVILEGED_FUNCTION */
+{
+    return ( ( Queue_t * ) xQueue )->uxLength;
 }
 /*-----------------------------------------------------------*/
 

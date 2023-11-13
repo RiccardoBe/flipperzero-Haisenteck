@@ -9,6 +9,6 @@ App(
     ],
     stack_size=4 * 1024,
     order=1,
-    fap_category="GPIO",
+    fap_category="Coffee",
     fap_icon="coffee_10px.png"
 )
