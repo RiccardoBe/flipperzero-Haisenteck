@@ -1,13 +1,14 @@
 </a>
 <h3>Haisenteck - Flipper zero firmware Mod</h3><br>
-Link all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/55cb7247e3bbc3b97866a32e6b157ebf94e77dd6/dist/release/flipper-z-f7-update-Haisenteck_V1.2.2.tgz&channel=Haisenteck_V1.2.2&version=V1.2.2' target='_blank'>WEB UPDATER - RELEASE</a><br>
-link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.2' target='_blank'>Versione STABILE</a><br>
-Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.2.tgz' target='_blank'>Versione DEV Build</a><br>
+Link all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/3757eba5eb0dd8dec70fc809fb7a89ce13e472c5/dist/release/flipper-z-f7-update-Haisenteck_V1.2.3.tgz&channel=Haisenteck_V1.2.3&version=V1.2.3' target='_blank'>WEB UPDATER - RELEASE</a><br>
+link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.3' target='_blank'>Versione STABILE</a><br>
+Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.3.tgz' target='_blank'>Versione DEV Build</a><br>
 Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/Flipper_MicroSD' target='_blank'>Contenuti Extra per Micro SD</a><br>
 <br>
 # Novità<br>
 - **FreeRTOS**<br>
 <ul>
+	<li>Upgrade da versione v10.6.0 a v10.6.1</li>
 	<li>Upgrade da versione V10.5.1 a V10.6.0</li>
 </ul>- **BLUETOOTH**<br>
 <ul>
@@ -23,6 +24,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li></del>
 	<li>ripristinato i dizionari mifare e non creati con Stepzor</li>
  	<li>aggiunto codici riconoscimento carte EMV</li>
+	<li>aggiunta lettura credito chiavette Coges grazie al contributo di un utente Telegram.</li>
 </ul>- **Sub-GHz**<br>
 <ul>
 	<li>SubGHz: Aggiunto AM_Q ai preset di utilizzo</li>
@@ -72,8 +74,6 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 --------------------------------------------------
     <li> Name: [ESP32] Camera Suite</li>
     <li> FAP Version: 1.3</li>
---------------------------------------------------
-    <li> Name: Coffee EEPROM</li>
 --------------------------------------------------
     <li> Name: free-dap</li>
     <li> FAP Version: 1.1</li>
@@ -448,6 +448,12 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
     <li> FAP Version: (0, 1)</li>
 --------------------------------------------------
     <li> Name: WAV Player</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+<br>Coffee:<br>
+    <li> Name: Coffee EEPROM</li>
+--------------------------------------------------
+    <li> Name: Coges</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
 <br>Infrared:<br>
