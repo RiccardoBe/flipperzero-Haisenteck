@@ -6,20 +6,6 @@
 #include <gui/modules/submenu.h>
 #include <gui/modules/text_input.h>
 #include <gui/modules/variable_item_list.h>
-#include <furi.h>
-#include <furi_hal.h>
-
-#include <gui/gui.h>
-#include <gui/scene_manager.h>
-#include <gui/modules/widget.h>
-
-#include <furi_hal_bt.h>
-#include <stdint.h>
-#include <furi_hal_random.h>
-//#include "lib/continuity/continuity.h"
-
-#include <furi/core/log.h>
-#include <furi/core/timer.h>
 
 #include "scenes/_setup.h"
 

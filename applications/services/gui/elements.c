@@ -90,6 +90,29 @@ void elements_scrollbar_pos(
     }
 }
 
+void elements_scrollbar_horizontal(
+    Canvas* canvas,
+    uint8_t x,
+    uint8_t y,
+    uint8_t width,
+    uint16_t pos,
+    uint16_t total) {
+    furi_assert(canvas);
+    // prevent overflows
+    canvas_set_color(canvas, ColorWhite);
+    canvas_draw_box(canvas, x, y - 3, width, 3);
+    // dot line
+    canvas_set_color(canvas, ColorBlack);
+    for(uint8_t i = x; i < width + x; i += 2) {
+        canvas_draw_dot(canvas, i, y - 2);
+    }
+    // Position block
+    if(total) {
+        float block_w = ((float)width) / total;
+        canvas_draw_box(canvas, x + (block_w * pos), y - 3, MAX(block_w, 1), 3);
+    }
+}
+
 void elements_scrollbar(Canvas* canvas, uint16_t pos, uint16_t total) {
     furi_assert(canvas);
 
@@ -677,6 +700,19 @@ void elements_scrollable_text_line(
 
     canvas_draw_str(canvas, x, y, furi_string_get_cstr(line));
     furi_string_free(line);
+}
+
+void elements_scrollable_text_line_centered(
+    Canvas* canvas,
+    uint8_t x,
+    uint8_t y,
+    uint8_t width,
+    FuriString* string,
+    size_t scroll,
+    bool ellipsis,
+    bool centered) {
+    elements_scrollable_text_line_str(
+        canvas, x, y, width, furi_string_get_cstr(string), scroll, ellipsis, centered);
 }
 
 void elements_text_box(

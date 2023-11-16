@@ -55,6 +55,6 @@ def explore_folder(folder_path, output_file):
 
 if __name__ == "__main__":
     starting_folder = r"D:\xxx_flipper_code\firmware\flipperzero-Haisenteck\applications_user"
-    output_filename = "7_Fap.txt"
+    output_filename = "8_Fap.txt"
     generate_tree_structure(starting_folder, output_filename)
     print(f"FAP categories generated and saved in {output_filename}")

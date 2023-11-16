@@ -19,7 +19,7 @@ static void config_callback(void* _ctx, uint32_t index) {
     if(!ctx->attack->protocol) {
         index--;
     } else if(ctx->attack->protocol->config_count) {
-        uint8_t extra = ctx->attack->protocol->config_count(&ctx->attack->payload.cfg);
+        uint8_t extra = ctx->attack->protocol->config_count(&ctx->attack->payload);
         if(index > extra) index -= extra;
     }
 
@@ -42,9 +42,7 @@ void scene_config_on_enter(void* _ctx) {
     VariableItemList* list = ctx->variable_item_list;
     variable_item_list_reset(list);
 
-    // Add item to be used as attack name header
-    variable_item_list_add(list, ctx->attack->title, 0, NULL, NULL);
-    //variable_item_list_set_header(list, ctx->attack->title);
+    variable_item_list_set_header(list, ctx->attack->title);
 
     config_bool(list, "Random MAC", &ctx->attack->payload.random_mac);
 

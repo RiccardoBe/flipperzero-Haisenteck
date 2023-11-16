@@ -1,5 +1,0 @@
-- **VARIE**<br>
-<ul>
-	<li>rimosso svariate problematiche relative a submoduli di github bloccati.</li>
-	<li>variazione di svariati parametri per ridurre i tempi morti tra i comandi e la frequenza di base del flipper (a discapito di un consumo leggermente superiore di batteria</li>
-</ul>
