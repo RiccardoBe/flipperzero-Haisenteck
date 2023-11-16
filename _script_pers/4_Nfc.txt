@@ -5,6 +5,7 @@
  		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></del>
 		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li></del>
 	<li>ripristinato i dizionari mifare e non creati con Stepzor</li>
+	<li>aggiornato dizionario NFC da Stepzor con ultima data: 2023/11/15 </li>
  	<li>aggiunto codici riconoscimento carte EMV</li>
 	<li>aggiunta lettura credito chiavette Coges grazie al contributo di un utente Telegram.</li>
 </ul>

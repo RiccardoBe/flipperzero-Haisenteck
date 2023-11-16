@@ -1,8 +1,8 @@
 </a>
 <h3>Haisenteck - Flipper zero firmware Mod</h3><br>
-Link all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/3757eba5eb0dd8dec70fc809fb7a89ce13e472c5/dist/release/flipper-z-f7-update-Haisenteck_V1.2.3.tgz&channel=Haisenteck_V1.2.3&version=V1.2.3' target='_blank'>WEB UPDATER - RELEASE</a><br>
-link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.3' target='_blank'>Versione STABILE</a><br>
-Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.3.tgz' target='_blank'>Versione DEV Build</a><br>
+Link all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/9299a10fe98248add05f2dd4dbe775b82f998158/dist/release/flipper-z-f7-update-Haisenteck_V1.2.4.tgz&channel=Haisenteck_V1.2.4&version=V1.2.4' target='_blank'>WEB UPDATER - RELEASE</a><br>
+link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.4' target='_blank'>Versione STABILE</a><br>
+Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.4.tgz' target='_blank'>Versione DEV Build</a><br>
 Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/Flipper_MicroSD' target='_blank'>Contenuti Extra per Micro SD</a><br>
 <br>
 # Novità<br>
@@ -31,33 +31,76 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 	<li>SubGhz: Aggiunto TPMS ai preset di utilizzo</li>
 	<li>SubGhz: predisposizione per ulteriori wheather station e comandi dedicati. </li>
 	<li>SubGhz Rolling Flaws - app aggiunta grazie a https://github.com/jamisonderek/flipper-zero-tutorials </li>
-	<li>Subghz Shapshup - app aggiunta e corretto alcune parti di codice</li>
-	<li>SubGhz - Protocolli Aggiunti:<ul>
-		<li>Weather - Acurite 592			-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Acurite 606TX			-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Acurite 609TXC		-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Ambient Wheather		-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Auriol_AHFL			-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Auriol HG06061		-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - GT-WT02				-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - GT-WT03				-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - inFactory-TH			-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - LaCrosse_TX			-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - LaCrosse_TX141THBv2	-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Nexus-TH				-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Oregon V1				-	lettura OK - salvataggio na - invio   </li>
-		<li>Weather - Oregon2				-	lettura OK - salvataggio na - invio   </li>
-		<li>Weather - Oregon3				-	lettura OK - salvataggio na - invio   </li>
-		<li>Weather - ThermoPRO-TX4			-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - TX8300				-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Wendox W6726			-	lettura OK - salvataggio OK - invio   </li>
-		<li>Weather - Baldr Rain (supporto protocolo per Nexus) ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
-		<li>SUBGHZ - X10					-	lettura OK - salvataggio OK - invio   </li>
-		<li>SUBGHZ - POCSAG					-	lettura OK - salvataggio    - invio   </li>
-		<li>SUBGHZ - YALE HSA ------ attualmente rimosso per problemi (falsi riconoscimenti) ------</li>
-		<li>TPMS - Schrader GG4				-	lettura OK - salvataggio    - invio   </li>
-		</ul></li>
-</ul>- **VARIE**<br>
+	<li>Subghz Shapshup - app aggiunta e corretto alcune parti di codice</li><table>
+<tr><th>Tag</th><th>Type</th><th>Flag</th></tr>
+<tr><td>Acurite_592TXR</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable</td></tr>
+<tr><td>Acurite_606TX</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Acurite_609TXC</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Alutech_at_4n</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>ambient_weather</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Ansonic</td><td>Statico</td><td>433 Enable, 315 Enable, FM, Save Enable, Send Enable</td></tr>
+<tr><td>auriol_ahfl</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Auriol_TH</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>_baldr_rain</td><td>Statico</td><td>433 Enable, FM, Save Enable, Send Enable</td></tr>
+<tr><td>Bett</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>BinRaw</td><td>SubGhzProtocolTypeBinRAW,</td><td>433 Enable, 315 Enable, 868 Enable, AM, FM, Save Enable, Send Enable</td></tr>
+<tr><td>Came</td><td>Statico</td><td>433 Enable, 315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>CameAtomo</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>CameTwee</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>ChambCode</td><td>Statico</td><td>315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Clemsa</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Doitrand</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Dooya</td><td>Statico</td><td>433 Enable, 315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>FaacSLH</td><td>Dinamico\Rolling Code</td><td>433 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>GateTx</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>GT_WT02</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM</td></tr>
+<tr><td>GT_WT03</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM</td></tr>
+<tr><td>Holtek</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>HoltekHt12x</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, FM, Save Enable, Send Enable</td></tr>
+<tr><td>HoneywellWdb</td><td>Statico</td><td>433 Enable, 315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>HormannHsm</td><td>Statico</td><td>433 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Ido117/111</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable</td></tr>
+<tr><td>Infactory</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM</td></tr>
+<tr><td>IntertechnoV3</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Keeloq</td><td>Dinamico\Rolling Code</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Kia</td><td>Dinamico\Rolling Code</td><td>433 Enable, FM</td></tr>
+<tr><td>KingGatesStylo4k</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>LaCrosse_TX</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>LaCrosse_TX141THBv2</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Linear</td><td>Statico</td><td>315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>LinearDelta3</td><td>Statico</td><td>315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Magellan</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Marantec</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Mastercode</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>MegaCode</td><td>Statico</td><td>315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>NeroRadio</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>NeroSketch</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Nexus_TH</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>NiceFlo</td><td>Statico</td><td>433 Enable, 315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>NiceFlorS</td><td>Dinamico\Rolling Code</td><td>433 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Oregon2</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Oregon3</td><td>WeatherStation</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Oregon_V1</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>PhoenixV2</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>POCSAG</td><td>Statico</td><td>FM, Save Enable, Send Enable</td></tr>
+<tr><td>PowerSmart</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Princeton</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Raw</td><td>SubGhzProtocolTypeRAW,</td><td>433 Enable, 315 Enable, 868 Enable, AM, FM, Save Enable, Send Enable</td></tr>
+<tr><td>ScherKhan</td><td>Dinamico\Rolling Code</td><td>433 Enable, FM, Save Enable</td></tr>
+<tr><td>Schrader</td><td>Statico</td><td>433 Enable, 315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>SecPlusV1</td><td>Dinamico\Rolling Code</td><td>315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>SecPlusV2</td><td>Dinamico\Rolling Code</td><td>315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Smc5326</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>SomfyKeytis</td><td>Dinamico\Rolling Code</td><td>433 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>SomfyTelis</td><td>Dinamico\Rolling Code</td><td>433 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>StarLine</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>ThermoPRO_TX4</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>TX_8300</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>WendoxW6726</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>X10</td><td>Dinamico\Rolling Code</td><td>315 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>YaleHSA</td><td>Statico</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
+</table>
+- **VARIE**<br>
 <ul>
 	<li>rimosso svariate problematiche relative a submoduli di github bloccati.</li>
 	<li>variazione di svariati parametri per ridurre i tempi morti tra i comandi e la frequenza di base del flipper (a discapito di un consumo leggermente superiore di batteria</li>
@@ -338,7 +381,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
     <li> Name: Bad BT</li>
 --------------------------------------------------
     <li> Name: BLE Spam</li>
-    <li> FAP Version: 4.1</li>
+    <li> FAP Version: 4.2</li>
 --------------------------------------------------
     <li> Name: BT Serial App</li>
 --------------------------------------------------
@@ -526,6 +569,8 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 --------------------------------------------------
 </ul>
 <br>
+Ultimo Merge da firmware ufficiale (anche fatto a mano): 2023/11/15
+<br><br>
 <br>
 #### **This firmware is a fork from** [FLIPPER ZERO OFFICIAL FIRMWARE](https://github.com/flipperdevices/flipperzero-firmware) <br>
 and part take from: [DarkFlippers/unleashed-firmware](https://github.com/DarkFlippers/unleashed-firmware)<br>
