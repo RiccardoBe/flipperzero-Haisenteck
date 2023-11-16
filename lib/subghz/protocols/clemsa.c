@@ -76,8 +76,7 @@ const SubGhzProtocolEncoder subghz_protocol_clemsa_encoder = {
 const SubGhzProtocol subghz_protocol_clemsa = {
     .name = SUBGHZ_PROTOCOL_CLEMSA_NAME,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable |
-            SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_clemsa_decoder,
     .encoder = &subghz_protocol_clemsa_encoder,

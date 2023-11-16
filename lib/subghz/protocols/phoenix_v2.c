@@ -63,8 +63,7 @@ const SubGhzProtocolEncoder subghz_protocol_phoenix_v2_encoder = {
 const SubGhzProtocol subghz_protocol_phoenix_v2 = {
     .name = SUBGHZ_PROTOCOL_PHOENIX_V2_NAME,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable |
-            SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_phoenix_v2_decoder,
     .encoder = &subghz_protocol_phoenix_v2_encoder,

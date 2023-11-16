@@ -95,8 +95,7 @@ const SubGhzProtocolEncoder subghz_protocol_came_twee_encoder = {
 const SubGhzProtocol subghz_protocol_came_twee = {
     .name = SUBGHZ_PROTOCOL_CAME_TWEE_NAME,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable |
-            SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_came_twee_decoder,
     .encoder = &subghz_protocol_came_twee_encoder,

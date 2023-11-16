@@ -94,8 +94,7 @@ const SubGhzProtocol subghz_protocol_infactory = {
     .name = subghz_protocol_INFACTORY_NAME,
     //.type = SubGhzProtocolWeatherStation,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_868 |
-            SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_868 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable,
 
     .decoder = &subghz_protocol_infactory_decoder,
     .encoder = &subghz_protocol_infactory_encoder,

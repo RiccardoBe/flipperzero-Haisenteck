@@ -68,8 +68,7 @@ const SubGhzProtocolEncoder subghz_protocol_linear_delta3_encoder = {
 const SubGhzProtocol subghz_protocol_linear_delta3 = {
     .name = SUBGHZ_PROTOCOL_LINEAR_DELTA3_NAME,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_315 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable |
-            SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_315 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_linear_delta3_decoder,
     .encoder = &subghz_protocol_linear_delta3_encoder,

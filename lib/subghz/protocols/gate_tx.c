@@ -61,8 +61,7 @@ const SubGhzProtocolEncoder subghz_protocol_gate_tx_encoder = {
 const SubGhzProtocol subghz_protocol_gate_tx = {
     .name = SUBGHZ_PROTOCOL_GATE_TX_NAME,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable |
-            SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_gate_tx_decoder,
     .encoder = &subghz_protocol_gate_tx_encoder,

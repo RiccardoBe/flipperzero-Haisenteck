@@ -83,9 +83,7 @@ const SubGhzProtocolEncoder subghz_protocol_faac_slh_encoder = {
 const SubGhzProtocol subghz_protocol_faac_slh = {
     .name = SUBGHZ_PROTOCOL_FAAC_SLH_NAME,
     .type = SubGhzProtocolTypeDynamic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_868 | SubGhzProtocolFlag_AM |
-            SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save |
-            SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_868 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_faac_slh_decoder,
     .encoder = &subghz_protocol_faac_slh_encoder,

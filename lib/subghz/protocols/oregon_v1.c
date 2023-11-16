@@ -95,8 +95,7 @@ const SubGhzProtocol subghz_protocol_oregon_v1 = {
     .name = SUBGHZ_PROTOCOL_OREGON_V1_NAME,
     //.type = SubGhzProtocolWeatherStation,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_868 |
-            SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_868 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_oregon_v1_decoder,
     .encoder = &subghz_protocol_oregon_v1_encoder,

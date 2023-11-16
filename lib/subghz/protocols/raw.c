@@ -75,9 +75,7 @@ const SubGhzProtocolEncoder subghz_protocol_raw_encoder = {
 const SubGhzProtocol subghz_protocol_raw = {
     .name = SUBGHZ_PROTOCOL_RAW_NAME,
     .type = SubGhzProtocolTypeRAW,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_868 | SubGhzProtocolFlag_315 |
-            SubGhzProtocolFlag_AM | SubGhzProtocolFlag_FM | SubGhzProtocolFlag_RAW |
-            SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_868 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_FM | SubGhzProtocolFlag_RAW | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_raw_decoder,
     .encoder = &subghz_protocol_raw_encoder,

@@ -3,6 +3,7 @@ import os
 # Esegui lo script "elenco_fap.py" nella stessa cartella
 os.system("py elenco_fap.py")
 os.system("py link.py")
+os.system("py subghz.py")
 
 # Trova tutti i file txt nella cartella corrente
 file_list = [file for file in os.listdir() if file.endswith(".txt")]

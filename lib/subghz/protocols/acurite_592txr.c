@@ -84,8 +84,7 @@ const SubGhzProtocol subghz_protocol_acurite_592txr = {
     .name = SUBGHZ_PROTOCOL_ACURITE_592TXR_NAME,
     //.type = SubGhzProtocolWeatherStation,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_868 |
-            SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_315 | SubGhzProtocolFlag_868 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save,
 
     .decoder = &subghz_protocol_acurite_592txr_decoder,
     .encoder = &subghz_protocol_acurite_592txr_encoder,
