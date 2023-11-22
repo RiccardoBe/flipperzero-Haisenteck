@@ -8,4 +8,5 @@
 	<li>aggiornato dizionario NFC da Stepzor con ultima data: 2023/11/15 </li>
  	<li>aggiunto codici riconoscimento carte EMV</li>
 	<li>aggiunta lettura credito chiavette Coges grazie al contributo di un utente Telegram.</li>
+	<li>aggiunto parser di carte russe dei trasporti e altre modifiche scritte da unleashed.</li>
 </ul>
