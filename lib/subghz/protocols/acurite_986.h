@@ -5,7 +5,7 @@
 #include <lib/subghz/blocks/const.h>
 #include <lib/subghz/blocks/decoder.h>
 #include <lib/subghz/blocks/encoder.h>
-#include "ws_generic.h"
+#include <lib/subghz/blocks/generic.h>
 #include <lib/subghz/blocks/math.h>
 
 #define subghz_protocol_ACURITE_986_NAME "Acurite-986"
