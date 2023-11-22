@@ -1,8 +1,8 @@
 </a>
 <h3>Haisenteck - Flipper zero firmware Mod</h3><br>
-Link all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/9299a10fe98248add05f2dd4dbe775b82f998158/dist/release/flipper-z-f7-update-Haisenteck_V1.2.4.tgz&channel=Haisenteck_V1.2.4&version=V1.2.4' target='_blank'>WEB UPDATER - RELEASE</a><br>
-link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.4' target='_blank'>Versione STABILE</a><br>
-Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.4.tgz' target='_blank'>Versione DEV Build</a><br>
+Link all'installazione dell'ultima release tramite Web Updater:<a href='https://lab.flipper.net/?url=https://rawcdn.githack.com/haisenteck/flipperzero-Haisenteck/2cfe24de2046da9ec5d20915d0927256858e140d/dist/release/flipper-z-f7-update-Haisenteck_V1.2.5.tgz&channel=Haisenteck_V1.2.5&version=V1.2.5' target='_blank'>WEB UPDATER - RELEASE</a><br>
+link al file di installazione stabile: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/releases/tag/V1.2.5' target='_blank'>Versione STABILE</a><br>
+Link al file di installazione DEV build: <a href='https://github.com/haisenteck/flipperzero-Haisenteck/blob/dev/dist/f7-C/flipper-z-f7-update-Haisenteck_V1.2.5.tgz' target='_blank'>Versione DEV Build</a><br>
 Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/Flipper_MicroSD' target='_blank'>Contenuti Extra per Micro SD</a><br>
 <br>
 # Novit�<br>
@@ -13,6 +13,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 </ul>- **BLUETOOTH**<br>
 <ul>
 	<li> Ble Spam FAP attiva</li>
+	<li> Ble Spam adattato da Xtreme Firmware</li>
 	<del><li>modifica a libreria di base per inclusione di diverse modalità del bluetooth notification per presentare il flipper come dispositivo Apple.</li></del>
 	<del><li>creato app per la gestione, si chiama FRUTTIVENDOLO.<br></del> App rimossa in quanto non più necessaria.</li>
 	
@@ -23,19 +24,23 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
  		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></del>
 		<del><li>MIFARE Classic 4k - emulated (6131 NFC)</li></ul></li></del>
 	<li>ripristinato i dizionari mifare e non creati con Stepzor</li>
+	<li>aggiornato dizionario NFC da Stepzor con ultima data: 2023/11/15 </li>
  	<li>aggiunto codici riconoscimento carte EMV</li>
 	<li>aggiunta lettura credito chiavette Coges grazie al contributo di un utente Telegram.</li>
+	<li>aggiunto parser di carte russe dei trasporti e altre modifiche scritte da unleashed.</li>
 </ul>- **Sub-GHz**<br>
 <ul>
-	<li>SubGHz: Aggiunto AM_Q ai preset di utilizzo</li>
-	<li>SubGhz: Aggiunto TPMS ai preset di utilizzo</li>
-	<li>SubGhz: predisposizione per ulteriori wheather station e comandi dedicati. </li>
+	<li>Aggiunto AM_Q ai preset di utilizzo</li>
+	<li>Aggiunto TPMS ai preset di utilizzo</li>
+	<li>predisposizione per ulteriori wheather station e comandi dedicati. </li>
 	<li>SubGhz Rolling Flaws - app aggiunta grazie a https://github.com/jamisonderek/flipper-zero-tutorials </li>
-	<li>Subghz Shapshup - app aggiunta e corretto alcune parti di codice</li><table>
+	<li>Subghz Shapshup - app aggiunta e corretto alcune parti di codice</li>
+	<li>aggiunto ulteriori protocolli ed effettuato un altro porting di protocollo weather station (2023/11/22)</li><table>
 <tr><th>Tag</th><th>Type</th><th>Flag</th></tr>
 <tr><td>Acurite_592TXR</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable</td></tr>
 <tr><td>Acurite_606TX</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>Acurite_609TXC</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Acurite_986</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable</td></tr>
 <tr><td>Alutech_at_4n</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>ambient_weather</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>Ansonic</td><td>Statico</td><td>433 Enable, 315 Enable, FM, Save Enable, Send Enable</td></tr>
@@ -57,6 +62,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 <tr><td>GT_WT03</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM</td></tr>
 <tr><td>Holtek</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>HoltekHt12x</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, FM, Save Enable, Send Enable</td></tr>
+<tr><td>Honeywell</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable</td></tr>
 <tr><td>HoneywellWdb</td><td>Statico</td><td>433 Enable, 315 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>HormannHsm</td><td>Statico</td><td>433 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>Ido117/111</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable</td></tr>
@@ -104,6 +110,8 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
 <ul>
 	<li>rimosso svariate problematiche relative a submoduli di github bloccati.</li>
 	<li>variazione di svariati parametri per ridurre i tempi morti tra i comandi e la frequenza di base del flipper (a discapito di un consumo leggermente superiore di batteria</li>
+	<li>diverse sistemazioni nel sistema, pulizia generale</li>
+	<li>rimozione di tutte le animazioni e lasciato animazione custom</li>
 </ul>- **FAP**<br><ul>
 <br>GPIO:<br>
     <li> Name: [BMI160] Air Mouse</li>
@@ -218,7 +226,7 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
     <li> Name: spi</li>
-    <li> FAP Version: 1.0</li>
+    <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: SWD Probe</li>
     <li> FAP Version: 1.0</li>
@@ -542,30 +550,36 @@ Link al repository dei contenuti extra: <a href='https://github.com/haisenteck/F
     <li> Name: TPMS Reader</li>
 --------------------------------------------------
     <li> Name: Weather Station</li>
-    <li> FAP Version: 1.1</li>
+    <li> FAP Version: 1.2</li>
 --------------------------------------------------
 <br>RFID:<br>
     <li> Name: RFID Beacon</li>
 --------------------------------------------------
     <li> Name: [YRM100] UHF RFID</li>
 --------------------------------------------------
+<br>USB:<br>
+    <li> Name: Mass Storage</li>
+    <li> FAP Version: 1.3</li>
+--------------------------------------------------
+    <li> Name: USB HID Autofire</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
 <br>NFC:<br>
     <li> Name: Mfkey32</li>
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: magic</li>
-    <li> FAP Version: 1.1</li>
+    <li> FAP Version: 1.2</li>
 --------------------------------------------------
     <li> Name: loclass</li>
-    <li> FAP Version: 1.7</li>
+    <li> FAP Version: 1.8</li>
+--------------------------------------------------
+    <li> Name: asn1</li>
+    <li> FAP Version: 2.0</li>
 --------------------------------------------------
 <br>Electronics:<br>
     <li> Name: Resistance calculator",  # Displayed in menus</li>
     <li> FAP Version: (1, 1)</li>
---------------------------------------------------
-<br>USB:<br>
-    <li> Name: USB HID Autofire</li>
-    <li> FAP Version: 1.0</li>
 --------------------------------------------------
 </ul>
 <br>

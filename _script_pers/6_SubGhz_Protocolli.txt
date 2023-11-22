@@ -3,6 +3,7 @@
 <tr><td>Acurite_592TXR</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable</td></tr>
 <tr><td>Acurite_606TX</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>Acurite_609TXC</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
+<tr><td>Acurite_986</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable</td></tr>
 <tr><td>Alutech_at_4n</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>ambient_weather</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>Ansonic</td><td>Statico</td><td>433 Enable, 315 Enable, FM, Save Enable, Send Enable</td></tr>
@@ -24,6 +25,7 @@
 <tr><td>GT_WT03</td><td>WeatherStation</td><td>433 Enable, 315 Enable, 868 Enable, AM</td></tr>
 <tr><td>Holtek</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>HoltekHt12x</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable, AM, FM, Save Enable, Send Enable</td></tr>
+<tr><td>Honeywell</td><td>Statico</td><td>433 Enable, 315 Enable, 868 Enable</td></tr>
 <tr><td>HoneywellWdb</td><td>Statico</td><td>433 Enable, 315 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>HormannHsm</td><td>Statico</td><td>433 Enable, 868 Enable, AM, Save Enable, Send Enable</td></tr>
 <tr><td>Ido117/111</td><td>Dinamico\Rolling Code</td><td>433 Enable, AM, Save Enable</td></tr>

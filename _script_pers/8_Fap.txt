@@ -112,7 +112,7 @@
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
     <li> Name: spi</li>
-    <li> FAP Version: 1.0</li>
+    <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: SWD Probe</li>
     <li> FAP Version: 1.0</li>
@@ -436,29 +436,35 @@
     <li> Name: TPMS Reader</li>
 --------------------------------------------------
     <li> Name: Weather Station</li>
-    <li> FAP Version: 1.1</li>
+    <li> FAP Version: 1.2</li>
 --------------------------------------------------
 <br>RFID:<br>
     <li> Name: RFID Beacon</li>
 --------------------------------------------------
     <li> Name: [YRM100] UHF RFID</li>
 --------------------------------------------------
+<br>USB:<br>
+    <li> Name: Mass Storage</li>
+    <li> FAP Version: 1.3</li>
+--------------------------------------------------
+    <li> Name: USB HID Autofire</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
 <br>NFC:<br>
     <li> Name: Mfkey32</li>
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: magic</li>
-    <li> FAP Version: 1.1</li>
+    <li> FAP Version: 1.2</li>
 --------------------------------------------------
     <li> Name: loclass</li>
-    <li> FAP Version: 1.7</li>
+    <li> FAP Version: 1.8</li>
+--------------------------------------------------
+    <li> Name: asn1</li>
+    <li> FAP Version: 2.0</li>
 --------------------------------------------------
 <br>Electronics:<br>
     <li> Name: Resistance calculator",  # Displayed in menus</li>
     <li> FAP Version: (1, 1)</li>
---------------------------------------------------
-<br>USB:<br>
-    <li> Name: USB HID Autofire</li>
-    <li> FAP Version: 1.0</li>
 --------------------------------------------------
 </ul>
