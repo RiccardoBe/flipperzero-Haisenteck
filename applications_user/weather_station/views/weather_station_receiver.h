@@ -27,8 +27,7 @@ void ws_view_receiver_add_data_statusbar(
     WSReceiver* ws_receiver,
     const char* frequency_str,
     const char* preset_str,
-    const char* history_stat_str,
-    bool external);
+    const char* history_stat_str);
 
 void ws_view_receiver_add_item_to_menu(WSReceiver* ws_receiver, const char* name, uint8_t type);
 
