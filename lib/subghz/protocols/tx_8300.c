@@ -2,6 +2,7 @@
 
 #define TAG "subghz_protocolTX_8300"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.com/merbanan/rtl_433/blob/master/src/devices/ambientweather_tx8300.c

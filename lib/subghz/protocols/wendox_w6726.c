@@ -2,6 +2,7 @@
 
 #define TAG "subghz_protocolWendoxW6726"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Wendox W6726
  *   

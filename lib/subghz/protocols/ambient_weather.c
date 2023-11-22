@@ -3,6 +3,7 @@
 
 #define TAG "subghz_protocol_ambient_weather"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.com/merbanan/rtl_433/blob/master/src/devices/ambient_weather.c

@@ -2,6 +2,7 @@
 
 #define TAG "subghz_protocolInfactory"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.com/merbanan/rtl_433/blob/master/src/devices/infactory.c

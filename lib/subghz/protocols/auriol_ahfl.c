@@ -2,6 +2,7 @@
 
 #define TAG "subghz_protocol_auriol_ahfl"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  *
 Auriol AHFL 433B2 IPX4 sensor.

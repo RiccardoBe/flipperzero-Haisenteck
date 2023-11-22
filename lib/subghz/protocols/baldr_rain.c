@@ -9,7 +9,7 @@
 
 //#define DIP_PATTERN "%c%c%c%c%c%c%c%c"
 
-
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /** @fn int baldr_rain_decode(r_device *decoder, bitbuffer_t *bitbuffer)
 Baldr / RainPoint Rain Gauge protocol.
 

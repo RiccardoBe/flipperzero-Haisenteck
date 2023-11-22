@@ -4,6 +4,7 @@
 
 #define LACROSSE_TX141TH_BV2_BIT_COUNT 41
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.com/merbanan/rtl_433/blob/master/src/devices/lacrosse_tx141x.c

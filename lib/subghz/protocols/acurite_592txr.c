@@ -2,6 +2,7 @@
 
 #define TAG "SubGhzProtocolAcurite_592TXR"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.com/merbanan/rtl_433/blob/master/src/devices/acurite.c

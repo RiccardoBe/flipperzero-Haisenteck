@@ -2,6 +2,7 @@
 
 #define TAG "subghz_protocol_GT_WT02"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.com/merbanan/rtl_433/blob/master/src/devices/gt_wt_02.c

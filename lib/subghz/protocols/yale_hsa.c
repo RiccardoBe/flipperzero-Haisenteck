@@ -8,6 +8,7 @@
 
 #define TAG "YaleHSA"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 static const SubGhzBlockConst subghz_protocol_yale_hsa_const = {
     .te_short = 850,
     .te_long = 1460,

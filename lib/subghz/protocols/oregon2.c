@@ -3,6 +3,7 @@
 
 #define TAG "SubGhzProtocolOregon2"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 static const SubGhzBlockConst subghz_protocol_oregon2_const = {
     .te_long = 1000,
     .te_short = 500,

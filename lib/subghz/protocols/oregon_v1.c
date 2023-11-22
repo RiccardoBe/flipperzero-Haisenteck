@@ -3,6 +3,7 @@
 
 #define TAG "subghz_protocol_Oregon_V1"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.dev/merbanan/rtl_433/blob/bb1be7f186ac0fdb7dc5d77693847d96fb95281e/src/devices/oregon_scientific_v1.c

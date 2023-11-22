@@ -2,6 +2,7 @@
 
 #define TAG "subghz_protocol_Auriol_TH"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  *
 Auriol HG06061A-DCF-TX sensor.

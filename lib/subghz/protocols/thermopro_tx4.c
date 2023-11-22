@@ -2,6 +2,7 @@
 
 #define TAG "subghz_protocolThermoPRO_TX4"
 
+// PORTING E PICCOLE MODIFICHE A CURA DI HAISENTECK
 /*
  * Help
  * https://github.com/merbanan/rtl_433/blob/master/src/devices/thermopro_tx2.c
