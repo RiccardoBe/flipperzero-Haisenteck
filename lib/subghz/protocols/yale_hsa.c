@@ -61,7 +61,7 @@ const SubGhzProtocolEncoder subghz_protocol_yale_hsa_encoder = {
 const SubGhzProtocol subghz_protocol_yale_hsa = {
     .name = SUBGHZ_PROTOCOL_YALE_HSA_NAME,
     .type = SubGhzProtocolTypeStatic,
-    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | ubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
+    .flag = SubGhzProtocolFlag_433 | SubGhzProtocolFlag_AM | SubGhzProtocolFlag_Decodable | SubGhzProtocolFlag_Load | SubGhzProtocolFlag_Save | SubGhzProtocolFlag_Send,
 
     .decoder = &subghz_protocol_yale_hsa_decoder,
     .encoder = &subghz_protocol_yale_hsa_encoder,
