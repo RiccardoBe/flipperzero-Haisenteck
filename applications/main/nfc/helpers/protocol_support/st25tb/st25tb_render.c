@@ -13,6 +13,7 @@ void nfc_render_st25tb_info(
     }
 
     uint32_t _uid = get_uid(data->uid);
+    //uint32_t _count_down_counter = get_count_down_counter(&data->blocks[6]);
     uint32_t _count_down_counter = get_count_down_counter(&data->blocks[6]);
     uint32_t _vendor_id = get_vendor(data->blocks[MYKEY_BLOCK_VENDOR_ID_1], data->blocks[MYKEY_BLOCK_VENDOR_ID_2]);
     uint32_t _master_key = get_master_key(_uid, _vendor_id);

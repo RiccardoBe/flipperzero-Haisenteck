@@ -20,6 +20,7 @@ typedef enum {
 
 #define get_uid(uid) ((uid)[7] | ((uid)[6] << 8) | ((uid)[5] << 16) | ((uid)[4] << 24))
 #define get_count_down_counter(b6) (~((b6)[3] << 24 | (b6)[2] << 16 | (b6)[1] << 8 | (b6)[0]))
+//#define get_count_down_counter(b6) (~b6)
 #define get_vendor(b1, b2) (get_block(b1) << 16 | (get_block(b2) & 0x0000FFFF))
 #define get_master_key(uid, vendor_id) ((uid) * ((vendor_id) + 1))
 #define get_is_bound(vendor_id) ((vendor_id) != MYKEY_DEFAULT_VENDOR_ID)
