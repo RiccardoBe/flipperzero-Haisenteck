@@ -27,7 +27,6 @@ void nfc_render_st25tb_info(
         //info data
         furi_string_cat_printf(str, "UID: %08lX\n", _uid);
         furi_string_cat_printf(str, "ID: %08lX\n", st25tb_get_block_value(data->blocks[7]));
-        furi_string_cat_printf(str, "Counter: %08lX", _count_down_counter);
         furi_string_cat_printf(str, "\nCounter New: %08lX", _count_down_counter_new);
         furi_string_cat_printf(str, "\nVendor ID: %08lX", _vendor_id);
         furi_string_cat_printf(str, "\nMaster Key: %08lX", _master_key);
