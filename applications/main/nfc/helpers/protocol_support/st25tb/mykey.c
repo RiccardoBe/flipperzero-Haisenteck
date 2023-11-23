@@ -14,6 +14,19 @@ uint32_t encode_decode_block(uint32_t input) {
     return input;
 }
 
+
+
+void endian_swap_uint8_array(uint8_t *array, size_t size) {
+    size_t i;
+    uint8_t temp;
+
+    for (i = 0; i < size / 2; i++) {
+        temp = array[i];
+        array[i] = array[size - 1 - i];
+        array[size - 1 - i] = temp;
+    }
+}
+
 /* Bytewise LITTLE ENDIAN */
 uint32_t st25tb_get_block_value(uint32_t block) {
     uint8_t byte0 = (block >> 24) & 0xFF;
