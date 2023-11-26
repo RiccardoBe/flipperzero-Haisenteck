@@ -1,0 +1,17 @@
+App(
+    appid="rgn_led",
+    name="RGB LED",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="rgb_led_app",
+    stack_size=1 * 1024,
+    cdefines=["APP_RGB_LED"],
+    requires=[
+        "gui",
+    ],
+    order=60,
+    fap_icon="rgb_led_10px.png",
+    fap_category="GPIO",
+    fap_icon_assets="assets",
+    fap_version="1.0",
+	fap_author="github user:flyandi (https://github.com/flyandi/flipper_zero_rgb_led)",
+)

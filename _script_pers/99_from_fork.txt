@@ -5,3 +5,6 @@ and part take from: [DarkFlippers/unleashed-firmware](https://github.com/DarkFli
 app from: https://github.com/xMasterX/all-the-plugins <br>
 and many other repository or source. <br>
 <br>
+<br>
+Non sono responsabile per qualsiasi uso illegale anche tentato di questo strumento.<br>
+<br>

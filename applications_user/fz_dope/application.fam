@@ -1,0 +1,9 @@
+App(
+    appid="fz_dope",
+    name="Fz Dope",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="fz_dope",
+    requires=["gui"],
+    stack_size=1 * 1024,
+    fap_icon="fz_dope_x10.png",
+)
