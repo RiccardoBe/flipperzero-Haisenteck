@@ -21,6 +21,7 @@ static const uint32_t subghz_frequency_list[] = {
     303875000,
     304250000,
     310000000,
+	314980000,
     315000000,
     318000000,
 
@@ -44,6 +45,7 @@ static const uint32_t subghz_frequency_list[] = {
 
 static const uint32_t subghz_hopper_frequency_list[] = {
     310000000,
+	314980000,
     315000000,
     318000000,
     390000000,
@@ -60,6 +62,7 @@ static const uint32_t subghz_frequency_list_region_eu_ru[] = {
     303875000,
     304250000,
     310000000,
+	314980000,
     315000000,
     318000000,
 
@@ -82,6 +85,7 @@ static const uint32_t subghz_frequency_list_region_eu_ru[] = {
 };
 static const uint32_t subghz_hopper_frequency_list_region_eu_ru[] = {
     310000000,
+	314980000,
     315000000,
     318000000,
     390000000,
@@ -97,6 +101,7 @@ static const uint32_t subghz_frequency_list_region_us_ca_au[] = {
     303875000,
     304250000,
     310000000,
+	314980000,
     315000000,
     318000000,
 
@@ -119,6 +124,7 @@ static const uint32_t subghz_frequency_list_region_us_ca_au[] = {
 };
 static const uint32_t subghz_hopper_frequency_list_region_us_ca_au[] = {
     310000000,
+	314980000,
     315000000,
     318000000,
     390000000,
@@ -134,6 +140,7 @@ static const uint32_t subghz_frequency_list_region_jp[] = {
     303875000,
     304250000,
     310000000,
+	314980000,
     315000000,
     318000000,
 
@@ -156,6 +163,7 @@ static const uint32_t subghz_frequency_list_region_jp[] = {
 };
 static const uint32_t subghz_hopper_frequency_list_region_jp[] = {
     310000000,
+	314980000,
     315000000,
     318000000,
     390000000,
@@ -277,6 +285,10 @@ static void subghz_setting_load_default_region(
         instance, "FM238", subghz_device_cc1101_preset_2fsk_dev2_38khz_async_regs);
     subghz_setting_load_default_preset(
         instance, "FM476", subghz_device_cc1101_preset_2fsk_dev47_6khz_async_regs);
+	subghz_setting_load_default_preset(
+        instance, "HONDA1", subghz_device_cc1101_preset_HONDA1);
+	subghz_setting_load_default_preset(
+        instance, "HONDA2", subghz_device_cc1101_preset_HONDA2);
 }
 
 void subghz_setting_load_default(SubGhzSetting* instance) {
