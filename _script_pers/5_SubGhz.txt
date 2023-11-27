@@ -2,7 +2,9 @@
 <ul>
 	<li>Aggiunto AM_Q ai preset di utilizzo</li>
 	<li>Aggiunto TPMS ai preset di utilizzo</li>
+	<li>Aggiunto HONDA1 ai preset di utilizzo</li>
+	<li>Aggiunto HONDA2 ai preset di utilizzo</li>
 	<li>predisposizione per ulteriori wheather station e comandi dedicati. </li>
 	<li>SubGhz Rolling Flaws - app aggiunta grazie a https://github.com/jamisonderek/flipper-zero-tutorials </li>
 	<li>Subghz Shapshup - app aggiunta e corretto alcune parti di codice</li>
-	<li>aggiunto ulteriori protocolli ed effettuato un altro porting di protocollo weather station (2023/11/22)</li>
+	<li>aggiunto ulteriori protocolli ed effettuato un altro porting di protocollo weather station (2023/11/27)</li>
