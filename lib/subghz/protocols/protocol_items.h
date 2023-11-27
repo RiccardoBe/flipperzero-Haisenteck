@@ -65,6 +65,7 @@
 #include "mastercode.h"
 #include "honeywell.h"
 #include "acurite_986.h"
+#include "genie.h"
 //#include "yale_hsa.h"
 //#include "baldr_rain.h"
 #include "bin_raw.h"
