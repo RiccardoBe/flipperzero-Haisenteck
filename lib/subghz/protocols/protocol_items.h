@@ -9,8 +9,8 @@
 #include "alutech_at_4n.h"
 #include "ambient_weather.h"
 #include "ansonic.h"
-#include "auriol_ahfl.h" //mancava
-#include "auriol_hg0601a.h" //mancava
+#include "auriol_ahfl.h"
+#include "auriol_hg0601a.h"
 //#include "baldr_rain.h"
 #include "bett.h"
 #include "bin_raw.h"
