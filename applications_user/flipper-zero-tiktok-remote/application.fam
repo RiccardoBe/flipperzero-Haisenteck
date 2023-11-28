@@ -1,0 +1,13 @@
+App(
+    appid="tiktok_remote",
+    name="TikTok Remote",
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="bt_tik_app",
+    stack_size=1 * 1024,
+    fap_category="Bluetooth",
+    fap_icon="bt_remote_10px.png",
+    fap_icon_assets="assets",
+	fap_weburl="https://github.com/derunix/flipper-zero-tiktok-remote",
+    fap_version="1.1",
+    fap_description="aggiornato e modificato da Haisenteck",
+)
