@@ -1,4 +1,5 @@
 - **FAP**<br><ul>
+Missing data in folder: D:\xxx_flipper_code\firmware\flipperzero-Haisenteck\applications_user\fz_dope
 <br>GPIO:<br>
     <li> Name: [BMI160] Air Mouse</li>
     <li> FAP Version: 0.8</li>
@@ -31,6 +32,8 @@
 --------------------------------------------------
     <li> Name: Flipagotchi</li>
 --------------------------------------------------
+    <li> Name: Flip Pirate</li>
+--------------------------------------------------
     <li> Name: Scope</li>
     <li> FAP Version: 0.2</li>
 --------------------------------------------------
@@ -49,6 +52,9 @@
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: Radiation Sensor</li>
+    <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: RGB LED</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
     <li> Name: Pokemon Trading</li>
@@ -127,7 +133,7 @@
     <li> FAP Version: 1.1</li>
 --------------------------------------------------
     <li> Name: u-blox GPS</li>
-    <li> FAP Version: (0, 1), # major, minor</li>
+    <li> FAP Version: (0, 2), # major, minor</li>
 --------------------------------------------------
     <li> Name: Temp sensors reader</li>
     <li> FAP Version: 1.4</li>
@@ -181,6 +187,9 @@
 --------------------------------------------------
     <li> Name: Flappy Bird</li>
     <li> FAP Version: 1.0</li>
+--------------------------------------------------
+    <li> Name: Hangman</li>
+    <li> FAP Version: (1, 4)</li>
 --------------------------------------------------
     <li> Name: Game 15</li>
     <li> FAP Version: 1.0</li>
@@ -279,6 +288,9 @@
 --------------------------------------------------
     <li> Name: BT Serial App</li>
 --------------------------------------------------
+    <li> Name: TikTok Remote</li>
+    <li> FAP Version: 1.1</li>
+--------------------------------------------------
     <li> Name: Bluetooth Remote</li>
 --------------------------------------------------
 <br>Tools:<br>
@@ -316,10 +328,15 @@
     <li> Name: QR Code</li>
     <li> FAP Version: (1, 1)</li>
 --------------------------------------------------
+    <li> Name: Pomodoro Timer</li>
+--------------------------------------------------
     <li> Name: Chronometer</li>
 --------------------------------------------------
     <li> Name: HEX Viewer</li>
     <li> FAP Version: 1.1</li>
+--------------------------------------------------
+    <li> Name: MagSpoof WIP</li>
+    <li> FAP Version: (0, 5),  # major, minor</li>
 --------------------------------------------------
     <li> Name: Multi Converter</li>
     <li> FAP Version: 1.0</li>
@@ -400,6 +417,8 @@
     <li> Name: XRemote</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
+    <li> Name: R.O.B. Control",  # Displayed in menus</li>
+--------------------------------------------------
     <li> Name: IR Remote</li>
     <li> FAP Version: 1.0</li>
 --------------------------------------------------
@@ -412,6 +431,8 @@
     <li> Name: Bad Apple</li>
 --------------------------------------------------
     <li> Name: jClock settings</li>
+--------------------------------------------------
+    <li> Name: LED Pulsator</li>
 --------------------------------------------------
 <br>Sub-GHz:<br>
     <li> Name: ShapShup</li>
@@ -442,6 +463,9 @@
     <li> Name: RFID Beacon</li>
 --------------------------------------------------
     <li> Name: [YRM100] UHF RFID</li>
+--------------------------------------------------
+<br>Power:<br>
+    <li> Name: Charge Controller",  # Displayed in menus</li>
 --------------------------------------------------
 <br>USB:<br>
     <li> Name: Mass Storage</li>

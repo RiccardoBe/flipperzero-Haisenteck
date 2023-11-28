@@ -1280,7 +1280,7 @@ Function,+,furi_hal_i2c_write_reg_8,_Bool,"FuriHalI2cBusHandle*, uint8_t, uint8_
 Function,+,furi_hal_ibutton_emulate_set_next,void,uint32_t
 Function,+,furi_hal_ibutton_emulate_start,void,"uint32_t, FuriHalIbuttonEmulateCallback, void*"
 Function,+,furi_hal_ibutton_emulate_stop,void,
-Function,+,furi_hal_ibutton_init,void,
+Function,-,furi_hal_ibutton_init,void,
 Function,+,furi_hal_ibutton_pin_configure,void,
 Function,+,furi_hal_ibutton_pin_reset,void,
 Function,+,furi_hal_ibutton_pin_write,void,const _Bool
